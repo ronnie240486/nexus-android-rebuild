@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
@@ -15,10 +17,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
+import android.widget.VideoView;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -219,10 +223,40 @@ public final class MainActivity extends Activity {
 
     private void showPlayer(String title) {
         LinearLayout root = moduleRoot("Player", title);
-        TextView player = text("Área do player\n\nA reprodução será conectada ao provedor autorizado do painel.", 20, WHITE);
-        player.setGravity(Gravity.CENTER);
+        VideoView player = new VideoView(this);
         player.setBackgroundColor(Color.BLACK);
-        root.addView(player, params(0, 0, 0, 20, 260));
+        MediaController controller = new MediaController(this);
+        controller.setAnchorView(player);
+        player.setMediaController(controller);
+        root.addView(player, params(0, 0, 0, 12, 280));
+        EditText url = input("URL direta do vídeo ou HLS (.m3u8)");
+        root.addView(url, params(0, 0, 0, 10));
+        TextView statusView = text("Informe uma URL autorizada para iniciar a reprodução.", 14, MUTED);
+        root.addView(statusView, params(0, 0, 0, 10));
+        player.setOnErrorListener((mp, what, extra) -> {
+            statusView.setText("Falha ao reproduzir: código " + what + "/" + extra);
+            statusView.setTextColor(ERROR);
+            return true;
+        });
+        Button play = button("Reproduzir", CYAN);
+        play.setOnClickListener(v -> {
+            String value = url.getText().toString().trim();
+            if (value.isEmpty()) {
+                statusView.setText("Informe a URL do conteúdo.");
+                statusView.setTextColor(ERROR);
+                return;
+            }
+            try {
+                player.setVideoURI(Uri.parse(value));
+                player.start();
+                statusView.setText("Reprodução iniciada.");
+                statusView.setTextColor(CYAN);
+            } catch (Exception error) {
+                statusView.setText(error.getClass().getSimpleName() + ": " + error.getMessage());
+                statusView.setTextColor(ERROR);
+            }
+        });
+        root.addView(play, params(0, 0, 0, 10));
         Button back = button("Voltar ao conteúdo", WHITE);
         back.setOnClickListener(v -> showDetails(title));
         root.addView(back, params(0, 0, 0, 0));
