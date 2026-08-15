@@ -1,0 +1,959 @@
+# Inventário de telas do NEXUS original
+
+Activities declaradas: **76**
+
+## Activities
+
+- `android.media.ViviTV.activity.VideoSummaryActivity`
+- `android.media.ViviTV.activity.LoginLandActivity`
+- `android.media.ViviTV.Pre_launcher`
+- `android.media.ViviTV.activity.TypeDetailsActivityLandV2`
+- `android.media.ViviTV.activity.HomeActivity`
+- `android.media.ViviTV.activity.FavVideoActivity`
+- `android.media.ViviTV.activity.SearchActivity`
+- `android.media.ViviTV.activity.VideoDetailsFragmentActivity`
+- `android.media.ViviTV.activity.VideoPlayActivity`
+- `android.media.ViviTV.player.VodPlayer`
+- `android.media.ViviTV.player.LivePlayer`
+- `android.media.ViviTV.activity.SettingFragmentActivity`
+- `android.media.ViviTV.activity.VideoAlbumActivity`
+- `android.media.ViviTV.activity.LabelVideoListActivity`
+- `android.media.ViviTV.activity.UrlAdActivity`
+- `android.media.ViviTV.activity.ImageAdActivity`
+- `android.media.ViviTV.activity.ShoppingItemDetailsActivity`
+- `android.media.ViviTV.activity.UserRegisterActivity`
+- `android.media.ViviTV.activity.VideoAlbumActivityWithIntroduce`
+- `android.media.ViviTV.activity.VideoClickDispatchActivity`
+- `android.media.ViviTV.activity.LabelListActivity`
+- `android.media.ViviTV.activity.VideoDetailsFragmentActivityV2`
+- `android.media.ViviTV.activity.SubjectAlbumActivity`
+- `android.media.ViviTV.activity.LabelWidePosterActivity`
+- `android.media.ViviTV.activity.InterviewListActivity`
+- `android.media.ViviTV.activity.VideoDetailsFragmentActivityWidePoster`
+- `android.media.ViviTV.activity.RecommendAppActivity`
+- `android.media.ViviTV.activity.InstalledAppListActivity`
+- `android.media.ViviTV.activity.AppDetailsActivity`
+- `android.media.ViviTV.activity.EPGMainActivity`
+- `android.media.ViviTV.activity.EPGSingleChannelActivity`
+- `android.media.ViviTV.activity.ScanPurchaseActivity`
+- `android.media.ViviTV.activity.PackagePurchaseActivity`
+- `android.media.ViviTV.activity.WebViewCommActivity`
+- `android.media.ViviTV.activity.StarDetailsActivity`
+- `android.media.ViviTV.activity.VideoAlbumActivityV2`
+- `android.media.ViviTV.activity.VideoDetailsPortraitActivity`
+- `android.media.ViviTV.activity.SearchActivityPortrait`
+- `android.media.ViviTV.activity.TypeDetailsActivityPortrait`
+- `android.media.ViviTV.activity.TypeDetailsActivityLand`
+- `android.media.ViviTV.activity.PurchaseActivity`
+- `android.media.ViviTV.activity.PurchaseListActivityPortrait`
+- `android.media.ViviTV.activity.LoginActivity`
+- `android.media.ViviTV.activity.ForgetPwdActivity`
+- `android.media.ViviTV.activity.RegisterActivity`
+- `android.media.ViviTV.activity.AboutUsActivity`
+- `android.media.ViviTV.activity.ImageViewPagerActivity`
+- `android.media.ViviTV.player.LivePlayerVertical`
+- `android.media.ViviTV.activity.CustomizedActivity`
+- `android.media.ViviTV.activity.CustomizedThreePageActivity`
+- `android.media.ViviTV.activity.LanguageSelectActivity`
+- `android.media.ViviTV.activity.ServerAddressSettingActivity`
+- `android.media.ViviTV.activity.UsbDeviceListActivity`
+- `android.media.ViviTV.activity.FileBrowseActivity`
+- `android.media.ViviTV.activity.EbookGalleryActivity`
+- `android.media.ViviTV.activity.SeatReservationActivity`
+- `android.media.ViviTV.activity.InterCutActivity`
+- `android.media.ViviTV.activity.CustomizedPortraitPdfActivity`
+- `android.media.ViviTV.activity.CustomizedPortraitArticleActivity`
+- `android.media.ViviTV.activity.MatchPlayActivity`
+- `android.media.ViviTV.activity.MatchAllEventActivity`
+- `android.media.ViviTV.activity.SearchActivityV3`
+- `android.media.ViviTV.activity.MatchScheduleActivity`
+- `android.media.ViviTV.activity.CompanyListActivity`
+- `android.media.ViviTV.activity.CompanyDetailsActivity`
+- `android.media.ViviTV.activity.VideoFavFragmentActivity`
+- `android.media.ViviTV.activity.LeagueMatchActivity`
+- `android.media.ViviTV.activity.LeagueTableActivity`
+- `com.example.x5web.X5WebViewActivity`
+- `com.example.x5web.SDKWebViewActivity`
+- `com.example.x5web.BaseWebViewActivity`
+- `cn.dolit.twowayviewlib.activitys.DemoTwoWayViewActivity`
+- `cn.dolit.updatelib.activitys.KillActivity`
+- `cn.dolit.updatelib.activitys.CustomUpdateDialogActivity`
+- `com.yanzhenjie.permission.PermissionActivity`
+- `com.bifan.txtreaderlib.ui.HwTxtPlayActivity`
+
+## Layouts
+
+- `layout-land/material_clock_period_toggle_land.xml`
+- `layout-land/material_timepicker.xml`
+- `layout-land/mtrl_picker_header_dialog.xml`
+- `layout-ldrtl/material_textinput_timepicker.xml`
+- `layout-ldrtl/md_listitem_multichoice.xml`
+- `layout-ldrtl/md_listitem_singlechoice.xml`
+- `layout-port/favorite_grid_layout.xml`
+- `layout-port/layout_home_item_fragment_common.xml`
+- `layout-sw600dp/design_layout_snackbar.xml`
+- `layout-sw600dp/mtrl_layout_snackbar.xml`
+- `layout-v21/abc_screen_toolbar.xml`
+- `layout-v21/itv_update_dialog.xml`
+- `layout-v21/layout_review_seek.xml`
+- `layout-v21/layout_vod_operation_window.xml`
+- `layout-v21/match_player_item.xml`
+- `layout-v21/notification_action.xml`
+- `layout-v21/notification_action_tombstone.xml`
+- `layout-v21/notification_template_custom_big.xml`
+- `layout-v21/notification_template_icon_group.xml`
+- `layout-v21/set_about.xml`
+- `layout-v21/test_design_checkbox.xml`
+- `layout-v21/test_design_radiobutton.xml`
+- `layout-v21/test_toolbar_elevation.xml`
+- `layout-v22/abc_alert_dialog_button_bar_material.xml`
+- `layout-v22/activity_forget_pwd.xml`
+- `layout-v22/activity_login.xml`
+- `layout-v22/activity_match_schedule.xml`
+- `layout-v22/activity_register.xml`
+- `layout-v22/fragment_home_match_item.xml`
+- `layout-v22/layout_match_main_menu_item.xml`
+- `layout-v22/league_match_item.xml`
+- `layout-v22/material_timepicker_dialog.xml`
+- `layout-v22/mtrl_alert_dialog_actions.xml`
+- `layout-v26/abc_screen_toolbar.xml`
+- `layout-v26/mtrl_calendar_month.xml`
+- `layout-watch-v20/abc_alert_dialog_button_bar_material.xml`
+- `layout-watch-v20/abc_alert_dialog_title_material.xml`
+- `layout/abc_action_bar_title_item.xml`
+- `layout/abc_action_bar_up_container.xml`
+- `layout/abc_action_menu_item_layout.xml`
+- `layout/abc_action_menu_layout.xml`
+- `layout/abc_action_mode_bar.xml`
+- `layout/abc_action_mode_close_item_material.xml`
+- `layout/abc_activity_chooser_view.xml`
+- `layout/abc_activity_chooser_view_list_item.xml`
+- `layout/abc_alert_dialog_button_bar_material.xml`
+- `layout/abc_alert_dialog_material.xml`
+- `layout/abc_alert_dialog_title_material.xml`
+- `layout/abc_cascading_menu_item_layout.xml`
+- `layout/abc_dialog_title_material.xml`
+- `layout/abc_expanded_menu_layout.xml`
+- `layout/abc_list_menu_item_checkbox.xml`
+- `layout/abc_list_menu_item_icon.xml`
+- `layout/abc_list_menu_item_layout.xml`
+- `layout/abc_list_menu_item_radio.xml`
+- `layout/abc_popup_menu_header_item_layout.xml`
+- `layout/abc_popup_menu_item_layout.xml`
+- `layout/abc_screen_content_include.xml`
+- `layout/abc_screen_simple.xml`
+- `layout/abc_screen_simple_overlay_action_mode.xml`
+- `layout/abc_screen_toolbar.xml`
+- `layout/abc_search_dropdown_item_icons_2line.xml`
+- `layout/abc_search_view.xml`
+- `layout/abc_select_dialog_material.xml`
+- `layout/abc_tooltip.xml`
+- `layout/activity_about_us.xml`
+- `layout/activity_app_details.xml`
+- `layout/activity_base_webview.xml`
+- `layout/activity_company_details.xml`
+- `layout/activity_company_list.xml`
+- `layout/activity_customized.xml`
+- `layout/activity_customized_article.xml`
+- `layout/activity_customized_details_pdf.xml`
+- `layout/activity_customized_three.xml`
+- `layout/activity_demo_two_way_view.xml`
+- `layout/activity_ebook_gallery.xml`
+- `layout/activity_fav_video.xml`
+- `layout/activity_file_browse.xml`
+- `layout/activity_forget_pwd.xml`
+- `layout/activity_hwtxtpaly.xml`
+- `layout/activity_image_view_pager.xml`
+- `layout/activity_installed_app_list.xml`
+- `layout/activity_inter_cut.xml`
+- `layout/activity_interview_list.xml`
+- `layout/activity_label_list.xml`
+- `layout/activity_label_wide_poster.xml`
+- `layout/activity_language_select.xml`
+- `layout/activity_login.xml`
+- `layout/activity_login_land.xml`
+- `layout/activity_match_all_event.xml`
+- `layout/activity_match_play.xml`
+- `layout/activity_match_schedule.xml`
+- `layout/activity_package_purchase.xml`
+- `layout/activity_purchase_list_portrait.xml`
+- `layout/activity_recharge.xml`
+- `layout/activity_recommend_app.xml`
+- `layout/activity_register.xml`
+- `layout/activity_scan_purchase.xml`
+- `layout/activity_search_portrait.xml`
+- `layout/activity_search_v3.xml`
+- `layout/activity_seat_reservation.xml`
+- `layout/activity_star_details.xml`
+- `layout/activity_subject_album.xml`
+- `layout/activity_type_details_land_v2.xml`
+- `layout/activity_usb_device_list.xml`
+- `layout/activity_video_details_fragment_v2.xml`
+- `layout/activity_video_details_fragment_wide_poster.xml`
+- `layout/activity_video_fav_fragment.xml`
+- `layout/activity_video_summary.xml`
+- `layout/activity_webview.xml`
+- `layout/adapter_chapterlist.xml`
+- `layout/adapter_company_list.xml`
+- `layout/adapter_epg_list_item_layout.xml`
+- `layout/adapter_epg_review_item_layout.xml`
+- `layout/adapter_epg_title_item.xml`
+- `layout/add_picture_manage.xml`
+- `layout/app_entry_menu_item.xml`
+- `layout/banner.xml`
+- `layout/custom_dialog.xml`
+- `layout/customized_display_item_fragment.xml`
+- `layout/design_bottom_navigation_item.xml`
+- `layout/design_bottom_sheet_dialog.xml`
+- `layout/design_layout_snackbar.xml`
+- `layout/design_layout_snackbar_include.xml`
+- `layout/design_layout_tab_icon.xml`
+- `layout/design_layout_tab_text.xml`
+- `layout/design_menu_item_action_area.xml`
+- `layout/design_navigation_item.xml`
+- `layout/design_navigation_item_header.xml`
+- `layout/design_navigation_item_separator.xml`
+- `layout/design_navigation_item_subheader.xml`
+- `layout/design_navigation_menu.xml`
+- `layout/design_navigation_menu_item.xml`
+- `layout/design_text_input_end_icon.xml`
+- `layout/design_text_input_start_icon.xml`
+- `layout/dialog_common.xml`
+- `layout/dialog_custom.xml`
+- `layout/exo_list_divider.xml`
+- `layout/exo_playback_control_view.xml`
+- `layout/exo_player_control_view.xml`
+- `layout/exo_player_view.xml`
+- `layout/exo_simple_player_view.xml`
+- `layout/exo_track_selection_dialog.xml`
+- `layout/favorite_grid_layout.xml`
+- `layout/file_list_item.xml`
+- `layout/filter_item_v2.xml`
+- `layout/filter_recycler_view_line.xml`
+- `layout/fragment_advertise.xml`
+- `layout/fragment_base_keyboard.xml`
+- `layout/fragment_customized_details_info.xml`
+- `layout/fragment_customized_details_pdf_web.xml`
+- `layout/fragment_customized_details_summary.xml`
+- `layout/fragment_ebook_gallery.xml`
+- `layout/fragment_file_browse.xml`
+- `layout/fragment_fm_broadcast.xml`
+- `layout/fragment_full_qwerty_keyboard.xml`
+- `layout/fragment_home_content_view.xml`
+- `layout/fragment_home_content_view_portrait.xml`
+- `layout/fragment_home_drm.xml`
+- `layout/fragment_home_live_item.xml`
+- `layout/fragment_home_match_item.xml`
+- `layout/fragment_home_top_view.xml`
+- `layout/fragment_home_top_view_nexus_style.xml`
+- `layout/fragment_home_top_view_vetv.xml`
+- `layout/fragment_multi_keyboard.xml`
+- `layout/fragment_password_verify.xml`
+- `layout/fragment_top_view_left_logo.xml`
+- `layout/fragment_user_info.xml`
+- `layout/fragment_video_file_list.xml`
+- `layout/fragment_video_introduction_fragment_wide_poster.xml`
+- `layout/home_hotel_fragment.xml`
+- `layout/home_layout.xml`
+- `layout/home_live_channel_item.xml`
+- `layout/item_dropdown.xml`
+- `layout/item_for_season_spinner.xml`
+- `layout/item_relevant_star.xml`
+- `layout/itv_buffering_dialog.xml`
+- `layout/itv_exit_dialog_layout.xml`
+- `layout/itv_fm_layout.xml`
+- `layout/itv_language.xml`
+- `layout/itv_loading_dialog.xml`
+- `layout/itv_purchase.xml`
+- `layout/itv_purchase_list_portrait.xml`
+- `layout/itv_purchase_portrait.xml`
+- `layout/itv_toast.xml`
+- `layout/itv_update_dialog.xml`
+- `layout/lang_spinner_item_layout.xml`
+- `layout/layout_activity_custom_update_dialog.xml`
+- `layout/layout_activity_epgmain.xml`
+- `layout/layout_activity_epgsingle_channel.xml`
+- `layout/layout_activity_fragment_setting.xml`
+- `layout/layout_activity_image_ad.xml`
+- `layout/layout_activity_label_video_list.xml`
+- `layout/layout_activity_server_address_setting.xml`
+- `layout/layout_activity_shopping_item_details.xml`
+- `layout/layout_activity_url_ad.xml`
+- `layout/layout_activity_user_register.xml`
+- `layout/layout_activity_video_album.xml`
+- `layout/layout_activity_video_album_base.xml`
+- `layout/layout_activity_video_album_with_introduce.xml`
+- `layout/layout_activity_video_album_wz_v2.xml`
+- `layout/layout_activity_video_details_base.xml`
+- `layout/layout_activity_vod_player_new.xml`
+- `layout/layout_adv_setting_dialog.xml`
+- `layout/layout_album_list_item.xml`
+- `layout/layout_album_list_item_v2.xml`
+- `layout/layout_app_list_item.xml`
+- `layout/layout_app_list_item_hide_title.xml`
+- `layout/layout_app_list_item_rv_installed.xml`
+- `layout/layout_app_list_item_rv_recommend.xml`
+- `layout/layout_app_summary_image_item.xml`
+- `layout/layout_app_update_progress.xml`
+- `layout/layout_area_list_item.xml`
+- `layout/layout_banner_pager_image_view.xml`
+- `layout/layout_banner_title_list_item.xml`
+- `layout/layout_btn_reload.xml`
+- `layout/layout_channel_category_item.xml`
+- `layout/layout_channel_category_item_home.xml`
+- `layout/layout_channel_category_item_ott.xml`
+- `layout/layout_custom_dialog.xml`
+- `layout/layout_demo_recycler_item.xml`
+- `layout/layout_ebook_item.xml`
+- `layout/layout_epg_channel_list_item.xml`
+- `layout/layout_epg_one_channel_type.xml`
+- `layout/layout_epg_program_list_one_channel.xml`
+- `layout/layout_episode_jmp_label.xml`
+- `layout/layout_fav_edit_portrait.xml`
+- `layout/layout_filter_v2.xml`
+- `layout/layout_fragment_base_video_list.xml`
+- `layout/layout_fragment_channel_list.xml`
+- `layout/layout_fragment_single_category_video_list.xml`
+- `layout/layout_fragment_user_register.xml`
+- `layout/layout_fragment_video_episode.xml`
+- `layout/layout_fragment_video_introduction.xml`
+- `layout/layout_fragment_video_introduction_v2.xml`
+- `layout/layout_fragment_video_recommend.xml`
+- `layout/layout_fragment_video_recommend_v2.xml`
+- `layout/layout_fragment_video_recommend_wide_poster.xml`
+- `layout/layout_global_marquee.xml`
+- `layout/layout_goal_card_item.xml`
+- `layout/layout_goal_card_item_end.xml`
+- `layout/layout_goal_card_item_first.xml`
+- `layout/layout_home_application_list_no_margin.xml`
+- `layout/layout_home_category_item.xml`
+- `layout/layout_home_category_search.xml`
+- `layout/layout_home_item_app_installed.xml`
+- `layout/layout_home_item_banner.xml`
+- `layout/layout_home_item_banner_pager.xml`
+- `layout/layout_home_item_banner_with_right_title.xml`
+- `layout/layout_home_item_empty.xml`
+- `layout/layout_home_item_fragment_cluster.xml`
+- `layout/layout_home_item_fragment_common.xml`
+- `layout/layout_home_item_fragment_common_vetv.xml`
+- `layout/layout_home_item_gif.xml`
+- `layout/layout_home_item_horizon_scroll.xml`
+- `layout/layout_home_item_horizon_scroll_item.xml`
+- `layout/layout_home_item_image_view.xml`
+- `layout/layout_home_item_like_app.xml`
+- `layout/layout_home_item_like_news.xml`
+- `layout/layout_home_item_like_news_marquee.xml`
+- `layout/layout_home_item_movie_full_width.xml`
+- `layout/layout_home_item_play_history.xml`
+- `layout/layout_home_item_tab_txt.xml`
+- `layout/layout_home_item_teleplay_with_btm_text.xml`
+- `layout/layout_home_item_teleplay_with_episode.xml`
+- `layout/layout_home_item_text_view.xml`
+- `layout/layout_home_item_title.xml`
+- `layout/layout_home_item_video.xml`
+- `layout/layout_hot_search_word_item.xml`
+- `layout/layout_hot_word_list_item.xml`
+- `layout/layout_hotel_summary_image_item.xml`
+- `layout/layout_insert_text_ad.xml`
+- `layout/layout_key_list_item.xml`
+- `layout/layout_key_list_item_selection_window.xml`
+- `layout/layout_key_selection_window.xml`
+- `layout/layout_label_list_item.xml`
+- `layout/layout_label_video_list_item.xml`
+- `layout/layout_label_video_list_item_wide_poster.xml`
+- `layout/layout_league_table_fragment.xml`
+- `layout/layout_line.xml`
+- `layout/layout_live_channel_list_refactor.xml`
+- `layout/layout_live_player.xml`
+- `layout/layout_live_player_vertical.xml`
+- `layout/layout_loading_indicator.xml`
+- `layout/layout_match_details_goal_card.xml`
+- `layout/layout_match_details_match_item.xml`
+- `layout/layout_match_event_left_menu_item.xml`
+- `layout/layout_match_line_up.xml`
+- `layout/layout_match_list.xml`
+- `layout/layout_match_main_menu_item.xml`
+- `layout/layout_match_schedule_left_menu_item.xml`
+- `layout/layout_notification_item.xml`
+- `layout/layout_notification_update_progress.xml`
+- `layout/layout_player_event_item.xml`
+- `layout/layout_pvf_key_item.xml`
+- `layout/layout_quality_list_item.xml`
+- `layout/layout_quality_selection_window.xml`
+- `layout/layout_quarterly_list_item.xml`
+- `layout/layout_rb_classification.xml`
+- `layout/layout_rb_day.xml`
+- `layout/layout_recommend_item.xml`
+- `layout/layout_review_seek.xml`
+- `layout/layout_speed_selection_window.xml`
+- `layout/layout_star_list_item.xml`
+- `layout/layout_subtitle_ad.xml`
+- `layout/layout_tag_list_item.xml`
+- `layout/layout_television_program_list_item.xml`
+- `layout/layout_text_ad.xml`
+- `layout/layout_title_bar_common.xml`
+- `layout/layout_top_view_port.xml`
+- `layout/layout_type_details_category_item.xml`
+- `layout/layout_type_details_category_item_kids.xml`
+- `layout/layout_update_dialog.xml`
+- `layout/layout_usb_device_item.xml`
+- `layout/layout_video_details_fragment_activity.xml`
+- `layout/layout_video_episode_item.xml`
+- `layout/layout_video_episode_item_v2.xml`
+- `layout/layout_video_episode_item_v2_dmlp.xml`
+- `layout/layout_video_list_item_rv.xml`
+- `layout/layout_video_list_item_v2.xml`
+- `layout/layout_video_list_item_wide_poster.xml`
+- `layout/layout_video_tag_button.xml`
+- `layout/layout_vod_operation_window.xml`
+- `layout/layout_vod_recommend_item.xml`
+- `layout/league_match_item.xml`
+- `layout/league_table_row.xml`
+- `layout/league_table_row_match_details.xml`
+- `layout/live_channel_list_item.xml`
+- `layout/live_channel_list_item_home.xml`
+- `layout/live_channel_list_item_portrait.xml`
+- `layout/live_channel_list_layout.xml`
+- `layout/live_contrl_new.xml`
+- `layout/live_control_bottom.xml`
+- `layout/live_control_top.xml`
+- `layout/live_error_dialog.xml`
+- `layout/loading_dialog.xml`
+- `layout/match_player_item.xml`
+- `layout/material_chip_input_combo.xml`
+- `layout/material_clock_display.xml`
+- `layout/material_clock_display_divider.xml`
+- `layout/material_clock_period_toggle.xml`
+- `layout/material_clockface_textview.xml`
+- `layout/material_clockface_view.xml`
+- `layout/material_radial_view_group.xml`
+- `layout/material_textinput_timepicker.xml`
+- `layout/material_time_chip.xml`
+- `layout/material_time_input.xml`
+- `layout/material_timepicker.xml`
+- `layout/material_timepicker_dialog.xml`
+- `layout/material_timepicker_textinput_display.xml`
+- `layout/md_dialog_basic.xml`
+- `layout/md_dialog_basic_check.xml`
+- `layout/md_dialog_custom.xml`
+- `layout/md_dialog_input.xml`
+- `layout/md_dialog_input_check.xml`
+- `layout/md_dialog_list.xml`
+- `layout/md_dialog_list_check.xml`
+- `layout/md_dialog_progress.xml`
+- `layout/md_dialog_progress_indeterminate.xml`
+- `layout/md_dialog_progress_indeterminate_horizontal.xml`
+- `layout/md_listitem.xml`
+- `layout/md_listitem_multichoice.xml`
+- `layout/md_listitem_singlechoice.xml`
+- `layout/md_stub_actionbuttons.xml`
+- `layout/md_stub_progress.xml`
+- `layout/md_stub_progress_indeterminate.xml`
+- `layout/md_stub_progress_indeterminate_horizontal.xml`
+- `layout/md_stub_titleframe.xml`
+- `layout/md_stub_titleframe_lesspadding.xml`
+- `layout/mediacontroller.xml`
+- `layout/mtrl_alert_dialog.xml`
+- `layout/mtrl_alert_dialog_actions.xml`
+- `layout/mtrl_alert_dialog_title.xml`
+- `layout/mtrl_alert_select_dialog_item.xml`
+- `layout/mtrl_alert_select_dialog_multichoice.xml`
+- `layout/mtrl_alert_select_dialog_singlechoice.xml`
+- `layout/mtrl_calendar_day.xml`
+- `layout/mtrl_calendar_day_of_week.xml`
+- `layout/mtrl_calendar_days_of_week.xml`
+- `layout/mtrl_calendar_horizontal.xml`
+- `layout/mtrl_calendar_month.xml`
+- `layout/mtrl_calendar_month_labeled.xml`
+- `layout/mtrl_calendar_month_navigation.xml`
+- `layout/mtrl_calendar_months.xml`
+- `layout/mtrl_calendar_vertical.xml`
+- `layout/mtrl_calendar_year.xml`
+- `layout/mtrl_layout_snackbar.xml`
+- `layout/mtrl_layout_snackbar_include.xml`
+- `layout/mtrl_picker_actions.xml`
+- `layout/mtrl_picker_dialog.xml`
+- `layout/mtrl_picker_fullscreen.xml`
+- `layout/mtrl_picker_header_dialog.xml`
+- `layout/mtrl_picker_header_fullscreen.xml`
+- `layout/mtrl_picker_header_selection_text.xml`
+- `layout/mtrl_picker_header_title_text.xml`
+- `layout/mtrl_picker_header_toggle.xml`
+- `layout/mtrl_picker_text_input_date.xml`
+- `layout/mtrl_picker_text_input_date_range.xml`
+- `layout/notification_action.xml`
+- `layout/notification_action_tombstone.xml`
+- `layout/notification_media_action.xml`
+- `layout/notification_media_cancel_action.xml`
+- `layout/notification_template_big_media.xml`
+- `layout/notification_template_big_media_custom.xml`
+- `layout/notification_template_big_media_narrow.xml`
+- `layout/notification_template_big_media_narrow_custom.xml`
+- `layout/notification_template_custom_big.xml`
+- `layout/notification_template_icon_group.xml`
+- `layout/notification_template_lines_media.xml`
+- `layout/notification_template_media.xml`
+- `layout/notification_template_media_custom.xml`
+- `layout/notification_template_part_chronometer.xml`
+- `layout/notification_template_part_time.xml`
+- `layout/pause_indicator.xml`
+- `layout/player_buf_pro.xml`
+- `layout/player_choose_art_item.xml`
+- `layout/player_choose_art_list.xml`
+- `layout/player_choose_set.xml`
+- `layout/player_choose_tv_gridview.xml`
+- `layout/player_menu_contrl.xml`
+- `layout/player_remote.xml`
+- `layout/pop_prompt_purchase.xml`
+- `layout/pop_upload_img.xml`
+- `layout/pre_launcher.xml`
+- `layout/search_keybord_full.xml`
+- `layout/search_keybord_full_v2.xml`
+- `layout/search_keybord_t9_v2.xml`
+- `layout/search_new.xml`
+- `layout/search_new_v2.xml`
+- `layout/search_srt_item.xml`
+- `layout/search_srt_pop.xml`
+- `layout/select_dialog_item_material.xml`
+- `layout/select_dialog_multichoice_material.xml`
+- `layout/select_dialog_singlechoice_material.xml`
+- `layout/set_about.xml`
+- `layout/set_jump_dialog.xml`
+- `layout/setting_clearcache.xml`
+- `layout/setting_login.xml`
+- `layout/setting_login_nexus.xml`
+- `layout/setting_other.xml`
+- `layout/setting_play.xml`
+- `layout/srt_set_item.xml`
+- `layout/srt_set_pop.xml`
+- `layout/support_simple_spinner_dropdown_item.xml`
+- `layout/surface_view.xml`
+- `layout/test_action_chip.xml`
+- `layout/test_chip_zero_corner_radius.xml`
+- `layout/test_design_checkbox.xml`
+- `layout/test_design_radiobutton.xml`
+- `layout/test_reflow_chipgroup.xml`
+- `layout/test_toolbar.xml`
+- `layout/test_toolbar_custom_background.xml`
+- `layout/test_toolbar_elevation.xml`
+- `layout/test_toolbar_surface.xml`
+- `layout/text_view_with_line_height_from_appearance.xml`
+- `layout/text_view_with_line_height_from_layout.xml`
+- `layout/text_view_with_line_height_from_style.xml`
+- `layout/text_view_with_theme_line_height.xml`
+- `layout/text_view_without_line_height.xml`
+- `layout/texture_view.xml`
+- `layout/top_view_complex_left_logo.xml`
+- `layout/type_details.xml`
+- `layout/type_details_filter_item.xml`
+- `layout/type_details_item.xml`
+- `layout/type_details_item_kids.xml`
+- `layout/type_details_item_migu.xml`
+- `layout/type_details_item_nzl.xml`
+- `layout/type_details_item_vetv.xml`
+- `layout/type_details_item_vn_single_line.xml`
+- `layout/type_details_land.xml`
+- `layout/vediodetail_rb.xml`
+- `layout/video_details_choose_arts_item.xml`
+- `layout/video_file_list_item.xml`
+- `layout/video_source.xml`
+- `layout/view_chapter_msg.xml`
+- `layout/view_menu_bottom.xml`
+- `layout/view_menu_top.xml`
+- `layout/view_null.xml`
+- `layout/view_progress.xml`
+- `layout/vip_mark.xml`
+- `layout/vlc_video_layout.xml`
+- `layout/vod_advertise_layout.xml`
+- `layout/vod_error_dialog.xml`
+- `layout/vod_play_top.xml`
+- `layout/vod_player_fronted_info_view.xml`
+- `layout/vod_player_layout.xml`
+- `layout/vod_seek_layout.xml`
+
+## Menus
+
+- `menu/menu_change_app_entry.xml`
+
+## Textos funcionais relevantes
+
+- `abc_search_hint` — Search…
+- `abc_searchview_description_clear` — Clear query
+- `abc_searchview_description_query` — Search query
+- `abc_searchview_description_search` — Search
+- `abc_searchview_description_submit` — Submit query
+- `abc_searchview_description_voice` — Voice search
+- `about_introduce` — \t Dolit OTT is a favorite audio-visual platform for overseas Chinese. It has a large number of real-time updated movies and TV series in Europe, America, Japan, South Korea, Hong Kong and Taiwan, popular fashion variety shows and international mainstream MTV, as well as international information from different perspectives. Whether you are a large number of overseas students, overseas Chinese emigrating overseas, or compatriots of Hong Kong, Taiwan, Malaysia and Singapore, there are your bells here Love Chinese film and TV programs!
+- `about_us_neutral` — \t IPTV/OTT TV live on-demand system, support Android TV box system, Andriod/iOS mobile phone, tablet, Roku and other platforms
+- `aboutus_version` — current version:
+- `account_active_failed_with_code` — Account Active Failed, Error:
+- `account_active_not_yet` — Account Not Active Yet
+- `account_agent_verify_failed` — Account Verification Failed
+- `account_forbidden` — Your account has been disabled
+- `account_has_actived` — Account Active Succeed
+- `account_number` — Account Number:
+- `account_using_now` — Your account is used in another device .please quit the IPTV apps and login to new device after %dmins.
+- `accounts_disabled_msg` — The Account Has Been Disabled, Please Contact The Administrator!
+- `active_biz_err_code_1001` — Cannot Connect To The Server, Please Check Your Connection
+- `active_biz_err_code_1002` — Activation Failed, Response Parsing Error
+- `active_biz_err_code_1003` — Activation Failed, Server Data Validation Failed
+- `active_biz_err_code_2001` — Activation Failed, Network Request Error, Check Device Network Settings
+- `active_biz_err_code_2002` — Activation Failed, An Error Occurred During The Request, Please Try Again
+- `active_biz_err_code_2003` — Activation Failed, Network Request Failed, Please Check Your Network
+- `active_email_send_failed` — Active Email Send Failed
+- `active_email_sended` — Active Email Send Succeed
+- `ad_app_setting` — app setting
+- `ad_no_permission_open_settings` — Permission Refused To Open Settings
+- `ad_play_next_schedule` — Play Next Schedule
+- `add_collect_concel` — Unfavorite successful!
+- `add_collect_success` — Add Favorites Successfully!
+- `app_download_task_exist` — Tasks Already Exist
+- `app_is_downloading` — Start to download application:
+- `app_update_tip_prefix` — Download Or Not
+- `are_you_sure_clear_favorite` — Are You Sure You Want To Empty The Collection?
+- `are_you_sure_clear_history` — Are You Sure You Want To Empty The Historical Records?
+- `are_you_sure_exit_live_shifting` — Confirm To Quit TVBack And Return To Live?
+- `auto_play_next_episode` — Auto Play Next
+- `back_to_live` — Return Live Broadcast
+- `boot_into_live` — Boot Into LiveTV
+- `can_not_login` — Can Not Login
+- `can_not_play` — Can Not Play
+- `can_not_play_vip` — Can Not Play After Paying
+- `cancel_play` — 取消播放
+- `cancel_vip_video_dialog` — Cancel
+- `certification_fail` — authentication fails, check the network settings
+- `change_account` — Change account
+- `channel` — Total %s channels
+- `clear_recode` — Clear History
+- `click_search` — click to search
+- `click_to_browse_epg` — Show Epg Info
+- `click_to_setting` — Click to set
+- `collect_cancel` — -> Canceled favorites!
+- `collect_record_remove` — Favorite Records Have Been Cleared!
+- `collection_records` — Collection history
+- `common_google_play_services_unknown_issue` — %1$s is having trouble with Google Play services. Please try again.
+- `confirm_live_shifting` — Is Confirmation Reviewed?
+- `confirm_live_shifting_with_oper_guide` — Are you sure to enter TVBack? After Entering TVback, You Can Still Click the [return] Button to Exit TVback.
+- `content_area_forbidden` — This video can not play in this area
+- `content_vip_video_dialog` — Only vip can watch this video, become vipupgrade to VIP now?
+- `continue_play` — 继续播放
+- `current_collect_cancel` — Unfavorite current channel
+- `current_video_quality` — Current Video Quality
+- `custom_channel` — Custom Channels
+- `custom_channel_remove` — Custom Channels Have Been Cleared!
+- `details_add_fav` — Add Favorite
+- `details_cancel_fav` — Cancel Favorite
+- `details_play` — Play
+- `details_play_lang` — language
+- `device_login_at_same_time_exceed` — The number of login devices exceeds the limit
+- `download_cache` — Download Cache
+- `download_cache_cleared` — Download Cache Cleaned Up
+- `download_confirm_prefix` — Whether To Download Or Not
+- `download_failed` — Download Failed
+- `download_failed_ec` — Fail to Download, Error Code:
+- `downloading` — Downloading
+- `drama_not_found` — Sorry, No episodes found to play ......
+- `epg_list_title_name` — EPG
+- `epg_menu_name` — EPG：
+- `epg_update` — EPG Update
+- `epg_update_failed` — EPG Update Failed
+- `episode` — Episode
+- `episode_name` — Episode %s
+- `episode_seq_num` — No %s
+- `exit_greet_zhong` — Good Afternoon, See More Video, Box Office Movie, Eat Less, Eat Well. Have A Dream, Even If It Is Far In The Future
+- `exit_grret_shang` — "Good Morning, Please Continue Your Work, I'll Enjoy My Video, I Feel Bored Today!"
+- `exit_live_activity` — Exit Live Page
+- `exo_controls_hide` — Hide player controls
+- `exo_controls_play_description` — Play
+- `exo_controls_show` — Show player controls
+- `exo_download_completed` — Download completed
+- `exo_download_description` — Download
+- `exo_download_downloading` — Downloading
+- `exo_download_failed` — Download failed
+- `exo_download_notification_channel_name` — Downloads
+- `exo_download_removing` — Removing downloads
+- `exo_track_selection_title_video` — Video
+- `favorite_record` — Favorite Record
+- `get_playback_url_err_with_code` — Failed to get review information, Error Code:
+- `get_player_argument_failed` — Failed to get Player Parameters. Please try again.
+- `get_trial_account_failed` — Get trial account failed
+- `getting_trial_account` — Getting trial account...
+- `goog_begin` — Exciting is about to begin ...
+- `has_cancel_download` — Has Been Cancelled
+- `has_not_search_history` — No Search History
+- `have_no_epg_info` — have no epg info
+- `have_no_play_back_url` — There is no data for tvback at the time
+- `hint_edt_search_activity` — Input first letter of each word
+- `hint_edt_server_address` — Pleasr input server address here
+- `hint_room_account` — Please input room account number
+- `hint_search_video_name` — Search for Video name
+- `history_browse_record` — Browse History
+- `http_client_err_code_1001` — Server Not Responding
+- `http_client_err_code_3001` — Server Response Is Empty
+- `http_client_err_code_3002` — Server Response Is Null
+- `http_client_err_code_4008` — Server Request Timeout
+- `http_client_err_code_4009` — Server Response Timeout
+- `http_client_err_code_4010` — Cannot Resolve Host, Please Check Your Network Settings
+- `http_client_err_code_6001` — Incorrect Server Response Format
+- `ip_address` — IP Address
+- `is_first_episode` — Has Reached first Episode
+- `is_last_episode` — Has Reached last Episode
+- `language_brazil` — Português
+- `language_chs` — 简体中文
+- `language_cht` — 繁体中文
+- `language_english` — English
+- `language_follow_system` — Follow System
+- `language_khmer` — ភាសាខ្មែរ
+- `language_korean` — 한국어
+- `language_malay` — Malay
+- `language_vietnamese` — 越南语
+- `last_set` — set to automatically select the current source of the last episode!
+- `live_btm_control_channel_catalogue` — Channel Catalogue
+- `live_btm_control_source` — Video Source:
+- `live_btm_control_switch_channel` — Change Channels
+- `live_btm_control_switch_source` — Change Sources
+- `live_category_all` — ALL
+- `live_channel_list_category` — Channel Category
+- `live_channellist_layout_empty_txt` — No records
+- `live_error_dialog_txt` — Playing next channel after 3 seconds
+- `live_no_channels` — No Channels
+- `live_source_url_with_problem` — The Current Source May Be Invalid, Error Code:
+- `load_live_data_failed_ec` — Error Loading Live Data, Error Code:
+- `load_live_data_failed_retry` — Failed To Load Data, Please Check The Network Retry ~
+- `load_playback_data_failed` — Failed To Load tvback data
+- `login` — Login
+- `loginValid_branchVersionNotMatch` — Subversion numbers do not match!
+- `loginValid_expired` — Account expired,pls contact administrator!
+- `loginValid_localError` — Request server data error,pls contact administrator!
+- `loginValid_noPayed` — Please recharge!
+- `loginValid_noUserNameOrNoPassword` — Please input username and password!
+- `loginValid_passwordError` — wrong password!
+- `loginValid_serverError` — Server return invalid result,pls contact administrator!
+- `loginValid_serverOperateFail` — Can not reach server,please try again!
+- `loginValid_unknownError` — Unknown error, please contact administrator!
+- `loginValid_userNameNoExist` — username not exit!
+- `loginValid_userNameUsedInOtherDevice` — Current ID already bind to other device,pls contact administrator!
+- `login_error` — Login Failed
+- `login_fai_login_again` — Login Failed, Please Login Again!
+- `login_failed_with_error_code` — Login Failed, Error:
+- `login_register_now` — Login/Sign Up
+- `login_success` — Login Succeeded
+- `mac_address` — MAC Address
+- `match_play_detail` — Details
+- `match_play_enter_field` — Enter the field
+- `match_play_goal` — Goal
+- `match_play_leave_field` — Leave the field
+- `match_play_lineup` — Line-up
+- `match_play_ranking` — Ranking
+- `match_play_red_card` — Red card
+- `match_play_statistics` — Statistics
+- `match_play_tip_day` — days
+- `match_play_tip_hour` — hours
+- `match_play_tip_min` — minutes
+- `match_play_tip_time` — until match begins
+- `match_play_yellow_card` — Yellow card
+- `material_clock_display_divider` — :
+- `mediacontroller_play_pause` — Play/Pause
+- `my_collection_no` — " Oh, you do not have collections, Video Classification there have a lot of movies, TV shows, please collect them. "
+- `my_fav_channel` — My Collections
+- `need_open_system_setting` — Whether To Open System Settings?
+- `net_setting` — Network Settings
+- `new_line` — Latest Video
+- `new_version_download_progress` — New Version Download Progress:
+- `new_year_red_rain` — About 2019 New Year Red Pack Rain
+- `newvod_arealable` — Region:
+- `newvod_type` — Category:
+- `next_play_shall_prevail` — Next show: the actual playing prevail
+- `next_set` — Next episode
+- `no_live_data` — No Live Data
+- `no_operation_for_a_while` — No active for a long time,
+- `no_valid_login_info_app_will_exit` — Not Logged Into The App, The Program Will Exit
+- `no_video_source` — No video source
+- `not_subtitle` — No subtitles of the video
+- `not_upload_video` — Video Not Uploaded
+- `ok_vip_video_dialog` — Become VIP
+- `parse_stream_srv_host_err` — Failed To Parse Streaming Server
+- `permission_message_permission_failed` — We need some permissions are you refuse or system error, would you please go to Settings page manual authorization, otherwise the function to use!
+- `permission_setting` — Setting
+- `play` — Play
+- `play_chase_no` — "You haven't been chasing drama , go and see the recently updated drama to select your favorations !"
+- `play_collect_collect` — collections
+- `play_collect_played` — Play History
+- `play_collect_tv_renewnum` — Drama chasing
+- `play_collect_tv_tvname` — No Drama
+- `play_error_check_url` — Play Failed. Please Check The Playback Address And Try Again
+- `play_error_not_url` — Unable To Obtain Playback Address. Please Check And Try Again
+- `play_error_time_out` — Play Timeout, Please Try Again Later
+- `play_failed` — Fail to play
+- `play_from_last_episode` — Continue Play From Last Time?
+- `play_history_no` — "You haven't played any yet. Massive movies and TV series are updated every day, go and enjoy it!"
+- `play_next_cancel` — Cancel
+- `play_next_episode_tips` — Play Next Episode？
+- `play_next_ok` — Yes
+- `play_record_remove` — Play Records Have Been Cleared!
+- `play_records` — Watch history
+- `play_shall_prevail` — current program: Subject to actual play
+- `play_stumble` — Pictures Not Sync
+- `playback_data_source_invalid` — Data Error. Try Again.
+- `playback_failed_ec` — Failed To Start tvback, Error Code:
+- `playback_menu_name` — TV back:
+- `playback_volume` — Playback Volume:
+- `player_menu_change_source_tv` — switch video source
+- `player_menu_fav_text` — Favorite current channel
+- `player_menu_list` — Channel list:
+- `player_menu_sclar` — Aspect Ratio:
+- `player_menu_sharp` — picture quality:
+- `player_menu_sharp_tv` — HD
+- `player_menu_source` — Video Source:
+- `player_menu_source_tv` — press the OK button to execute
+- `player_menu_srt` — subtitles:
+- `player_menu_srt_textSet` — Set Subtitle
+- `player_menu_srt_tv` — off
+- `player_menu_voice` — Volume adjustment:
+- `please_input_channel_password` — please input password:
+- `please_update_live_data` — Please click [Update Live List] to update the data~
+- `program_info_updating` — EPG Is Updating...
+- `purchase_member` — Open Video membership to watch free
+- `purchase_member_vvip` — This Video belongs to VVIP, Purchase Needs% S Gold Coin
+- `purchase_or_renew_vip` — To continue playing, you need to open / Renew VIP members, Click OK to authenticate, and click cancel to exit
+- `purchase_video` — Buy this Video to watch free
+- `reload_live_data` — Reload Live Data
+- `reminder_of_expiration_time` — The account has %d days to expire. Please recharge it in time.
+- `resend_active_email` — Resend Active Email
+- `reset_local_live_vod_pwd` — Reset Local Pwd
+- `room_account` — Room account number:
+- `scan_qr_code_download_app` — Scan QR Code To Download App
+- `search` — Search
+- `search_all` — All
+- `search_allline` — Search
+- `search_empty_text` — No Search Results
+- `search_history` — Search History
+- `search_home` — search
+- `search_home_layout` — Search
+- `search_hot` — Hot Search
+- `search_keybord_hint` — " Select the first letter of alphabet Quick, such as Tai Ji TJ "
+- `search_menu_title` — Search
+- `select_language` — Select Language
+- `server_address_saved` — Server address saved
+- `set_about_layout1` — About Us
+- `set_autolive` — Access to live channel quickly
+- `set_autolive_tv` — Disable
+- `set_item_hk` — Server Three
+- `set_item_main` — Server One
+- `set_item_unin` — Server Four
+- `set_item_wcdma` — Server Two
+- `set_lr` — Live left and right button function set
+- `set_renew` — Update Live Channel list
+- `set_scalor` — Screen display ratio
+- `set_server_address` — Server Settings
+- `set_sharp` — VOD resolution selection
+- `set_ud` — Live up and down button function set
+- `set_ud_tv` — Up button for next channel
+- `set_vod_jump_end_et` — Skip tailer:
+- `set_vod_jump_start_et` — second
+- `settingPlay_autoDecode` — Auto Select
+- `settingPlay_hardDecode` — Hard Decoder
+- `settingPlay_list` — Select Live Channel list
+- `settingPlay_selectDecodeType` — Select Decoding Type
+- `settingPlay_serverDecode` — Server Set
+- `settingPlay_softDecode` — Sofe Decoder
+- `setting_channel_play_sound` — Turn on operation tone
+- `setting_clear_all_btn` — All Clear
+- `setting_clear_pic_btn` — Clear
+- `setting_clear_pic_hint` — Used 50M / Total-100M
+- `setting_main_layout1` — Settings
+- `setting_net_layout1` — Returns
+- `setting_net_select` — Select
+- `setting_search_again` — Re-search / Disconnected
+- `setting_speed_source` — Start Testing
+- `setting_speed_tv` — Waiting To Perform Tests ......
+- `setting_system_setting` — System Setting
+- `setting_weather_city` — City / County
+- `setting_weather_provice` — State / Province
+- `settings` — Settings
+- `settings_macAddress` — MAC Address:
+- `seven_day_review` — Live Review
+- `software_boot_live` — Software boot into LiveTV
+- `source_changed_and_update` — Live Source Updated, Changing To New Source.
+- `stop_download` — Stop Downloading
+- `switch_account` — Are you sure to change account number?
+- `switch_account_tip` — Change account will delete history and collections
+- `switch_language` — Switch Language
+- `television_playback` — TV Back
+- `temp_download_app_removed` — Temporary Installation Packages That Have Been Cleaned Up And Downloaded
+- `text_tv_title_server_address_setting` — Server address setting
+- `this_video_can_not_play_try_others` — This Video Can not Be Played now. Try Others pls.
+- `this_video_not_play` — You May Not Be Able To Play The Video In Your Area. ~
+- `time_settings_refresh_failed` — Time Settings Failed To Load. Do You Want To Reload?
+- `tip_auto_play_set_when_error` — play error, auto play next episode
+- `tip_background_downloading` — New Version Is Downloading, Pls Wait...
+- `tip_can_not_connect_to_server` — Can not connect to server, error code %1$d
+- `tip_channel_can_not_play` — Unavailable. Try Another.
+- `tip_clear_search_history` — Confirm to empty search history?
+- `tip_clear_search_history_failed` — Fail to clear history
+- `tip_duplicate_login` — It is detected that you are logged in on other devices, the APP will automatically log out
+- `tip_exit_live_shifting_oper` — Entering the tvback, You Can still click the [return] button to exit.
+- `tip_has_no_search_result` — No Relevant Information Yet.
+- `tip_label_no_video_list` — No video has this label
+- `tip_live_shifting_status` — Watching TVback
+- `tip_no_playback_cfg_url` — Not configured to tvback information
+- `tip_no_shifting_config` — The channel does not support time shift, Time Shift cancel
+- `tip_test_connectivity_to_server` — Is Testing Connectivity To Server
+- `tip_video_broadcast_no_wifi` — 非WIFI下播放视频会耗费流量并带来一定费用，确认播放吗？
+- `tip_vip_live_channel` — This channel is VIP Special . Do you want to upgrade to VIP?
+- `tips_has_no_channel_info` — Has No Channel Info
+- `tips_has_no_match_url` — The Event Playback Address Has Not Been Configured Yet
+- `tips_has_no_playback_info_hour` — Has No Playback Info Of That Hour
+- `tips_playback_of_today_has_end` — Playback Of Today Has Completed
+- `tips_report_error_url_fail` — Report Failed, Address Is Empty Or Generation Failed
+- `title_acivity_epg_main` — EPG
+- `title_notification_update` — New Version Is Downloading, Pls Wait…
+- `title_vip_video_dialog` — Hint
+- `toast_language_restart` — You have modified the language options, exit the settings interface and restart the app to make it effective..
+- `toast_live_list_unexsit` — LiveTV List is Updating ...... Please wait!
+- `toast_live_list_unexsit_auto` — LiveTV complete list has not been updated, you cannot entered LiveTV directly......
+- `toast_live_no_fav` — Dear, You Do Not Have Favorite Channels
+- `toast_nextset_hint` — press again to play the next episode
+- `toast_set_live_renew_ok` — LiveTV list updated!
+- `toast_set_login_hint` — Certified Activated Before It Can Be Be Used Normally ......
+- `total_channel` — 10 channels in total
+- `total_part` — episode %s
+- `txtOtherSet` — Other setting
+- `txtPlayFirstItem` — Play options
+- `txtServerList` — Server List
+- `txtServerSelect` — Choose Server
+- `txtWeatherSetting` — Weather
+- `type_details_menu_hint` — Press The Menu Key For The Search Filter
+- `type_details_menu_tosearch` — Go To The Search
+- `type_details_sum` — Total Video
+- `under_key` — Down button to next channel
+- `update_apk_download` — New Version Download
+- `user_accountName` — Account:
+- `user_accountNameHint` — pls input account
+- `user_accountPassword` — Password:
+- `user_accountPasswordHint` — please input password
+- `user_email_hint` — Please Input Your E-mail Address.
+- `user_login` — Log in
+- `user_name_logout` — Login Not
+- `user_register_address` — Address:
+- `validation_error` — Genuine validation module initialization error, the program is about to exit and return!
+- `validation_fails` — Genuine validation fails, EncSo cannot be called!, the program is about to exit
+- `verify_account` — Account Verify
+- `vetv_live` — Live
+- `video_audio_not_sync` — V/A Not Asyc
+- `video_default_quality` — Default Quality
+- `video_quality` — Video Quality
+- `video_speed` — Video speed
+- `video_sum` — Total %s Videos
+- `video_type` — VOD
+- `vod_detail_failed` — Loading Movie Failed, Please Retry Or Play Others
+- `vod_fetch_url_faild` — Loading Address Failed, Please Retry Or Play Others
+- `vod_language_no_more` — No more
+- `vod_language_select_prefix` — Selected Language:
+- `vod_mode_normal` — Normal
+- `vod_no_url` — Playback Failed, Please Try Other
+- `vod_parse_url_faild` — Pulling Address Failed, Please Retry Or Play Others
+- `vod_play_failed` — Playback Failed, Please Retry Or Play Others
+- `vod_play_speed` — 1234kb /s
+- `vod_player_speed_wenzi` — real-time net speed:
+- `youtube_not_install_can_not_play` — YouTube Application Is Not Installed And The Video Cannot Be Played ~
