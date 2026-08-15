@@ -4,7 +4,7 @@ Repositório privado para a reconstrução incremental do aplicativo **Facilitus
 
 > **Nova identidade:** o produto reconstruído usa o nome Facilitus, o pacote proposto `com.facilitus.app`, novo ícone/logo e ativação obrigatória por MAC numérico exclusivo de 12 dígitos.
 
-> **Estado atual:** build completa baseada no APK antigo disponível em `dist/facilitus-legacy-0.2.12.apk`; ela preserva os módulos legados e inicia pela tela Facilitus de MAC. A associação da lista continua sendo feita no painel.
+> **Estado atual:** build completa crashfix2 disponível em `dist/facilitus-legacy-0.2.12-crashfix2.apk`; ela preserva os módulos legados, mantém o pacote compatível com o shell original e inicia pela tela Facilitus de MAC. A associação da lista continua sendo feita no painel.
 
 ## Escopo
 

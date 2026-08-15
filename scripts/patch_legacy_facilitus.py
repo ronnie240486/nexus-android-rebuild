@@ -13,7 +13,8 @@ if apktool_yml.exists():
     metadata = metadata.replace("versionName: 0.2.12", "versionName: '0.2.12'")
     apktool_yml.write_text(metadata)
 
-manifest = manifest.replace('package="cn.dolit.nexus"', 'package="com.facilitus.app"')
+# Keep the original package for compatibility with the legacy shell and its
+# persisted data. The visible product identity is changed to Facilitus below.
 manifest = manifest.replace('android:icon="@mipmap/ic_launcher_warez"', 'android:icon="@mipmap/facilitus_launcher"')
 manifest = manifest.replace('android:banner="@mipmap/ic_lau_nexus_banner"', 'android:banner="@drawable/facilitus_wordmark"')
 
