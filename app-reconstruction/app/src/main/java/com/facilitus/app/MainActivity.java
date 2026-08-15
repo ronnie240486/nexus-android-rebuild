@@ -20,6 +20,10 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -280,8 +284,58 @@ public final class MainActivity extends Activity {
             item.setOnClickListener(v -> toast("Lista selecionada: " + list));
             root.addView(item, params(0, 0, 0, 9));
         }
-        root.addView(text("A lista privada é controlada pelo painel e não é criada automaticamente pelo APK.", 14, MUTED), params(0, 14, 0, 0));
+        TextView syncStatus = text("A lista privada é controlada pelo painel e não é criada automaticamente pelo APK.", 14, MUTED);
+        root.addView(syncStatus, params(0, 14, 0, 12));
+        Button sync = button("Sincronizar primeira lista", CYAN);
+        sync.setOnClickListener(v -> syncFirstList(syncStatus));
+        root.addView(sync, params(0, 0, 0, 0));
         setPage(root);
+    }
+
+    private void syncFirstList(TextView statusView) {
+        String endpoint = PanelConfigStore.getServer(this, 1);
+        if (endpoint.isEmpty()) {
+            statusView.setText("Configure o Servidor 1 antes de sincronizar uma lista.");
+            statusView.setTextColor(ERROR);
+            return;
+        }
+        statusView.setText("Sincronizando lista...");
+        statusView.setTextColor(GOLD);
+        new Thread(() -> {
+            HttpURLConnection connection = null;
+            try {
+                URL url = new URL(endpoint);
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setConnectTimeout(10000);
+                connection.setReadTimeout(15000);
+                connection.setRequestProperty("User-Agent", "Facilitus/0.3.0");
+                int code = connection.getResponseCode();
+                if (code < 200 || code >= 300) {
+                    throw new IllegalStateException("HTTP " + code);
+                }
+                StringBuilder body = new StringBuilder();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        body.append(line).append('\n');
+                    }
+                }
+                int count = M3uParser.parse(body.toString()).size();
+                runOnUiThread(() -> {
+                    statusView.setText("Lista sincronizada: " + count + " itens encontrados.");
+                    statusView.setTextColor(CYAN);
+                });
+            } catch (Exception error) {
+                runOnUiThread(() -> {
+                    statusView.setText("Falha ao sincronizar: " + error.getClass().getSimpleName());
+                    statusView.setTextColor(ERROR);
+                });
+            } finally {
+                if (connection != null) {
+                    connection.disconnect();
+                }
+            }
+        }).start();
     }
 
     private void showAccount() {
