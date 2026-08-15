@@ -306,13 +306,25 @@ public final class MainActivity extends Activity {
 
     private void showServer() {
         LinearLayout root = moduleRoot("Servidor", "Configuração equivalente à tela ServerAddressSettingActivity");
+        addLabel(root, "API DO SERVIDOR");
+        EditText api = input("API do Servidor");
+        api.setText(PanelConfigStore.getApi(this));
+        root.addView(api, params(0, 0, 0, 12));
         addLabel(root, "ENDPOINTS DISPONÍVEIS");
+        EditText[] endpoints = new EditText[5];
         for (int index = 1; index <= 5; index++) {
-            EditText endpoint = input("Servidor " + index);
-            root.addView(endpoint, params(0, 0, 0, 8));
+            endpoints[index - 1] = input("Servidor " + index);
+            endpoints[index - 1].setText(PanelConfigStore.getServer(this, index));
+            root.addView(endpoints[index - 1], params(0, 0, 0, 8));
         }
         Button save = button("Salvar servidores", GOLD);
-        save.setOnClickListener(v -> toast("Servidores salvos localmente"));
+        save.setOnClickListener(v -> {
+            PanelConfigStore.saveApi(this, api.getText().toString());
+            for (int index = 1; index <= 5; index++) {
+                PanelConfigStore.saveServer(this, index, endpoints[index - 1].getText().toString());
+            }
+            toast("Servidores salvos localmente");
+        });
         root.addView(save, params(0, 8, 0, 0));
         setPage(root);
     }
