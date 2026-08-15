@@ -1,6 +1,8 @@
-# NEXUS Android Rebuild
+# Facilitus Android Rebuild
 
-Repositório privado para a análise forense, documentação e reconstrução incremental do APK **NEXUS** fornecido no projeto. O objetivo é transformar um pacote Android fechado e parcialmente ofuscado em uma base de manutenção controlável, com separação entre evidências do APK original, código decompilado e uma futura implementação limpa.
+Repositório privado para a reconstrução incremental do aplicativo **Facilitus**, criado a partir da análise forense do APK original **NEXUS** fornecido no projeto. O objetivo é transformar um pacote Android fechado e parcialmente ofuscado em uma base de manutenção controlável, com separação entre evidências do APK original, código decompilado e uma futura implementação limpa.
+
+> **Nova identidade:** o produto reconstruído usa o nome Facilitus, o pacote proposto `com.facilitus.app`, novo ícone/logo e ativação obrigatória por MAC numérico exclusivo de 12 dígitos.
 
 > **Estado atual:** diagnóstico inicial concluído; a reconstrução funcional ainda não foi iniciada.
 

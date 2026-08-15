@@ -1,6 +1,8 @@
 # App reconstruction
 
-A implementação compilável do NEXUS será criada nesta pasta depois que o contrato de produto for confirmado. Ela não deve importar classes do pacote `cn.dolit.nexus` nem depender do Java decompilado.
+A implementação compilável do **Facilitus** será criada nesta pasta. O APK original continua documentado em `forensics/` como referência histórica; a nova implementação não deve importar classes do pacote `cn.dolit.nexus` nem depender do Java decompilado.
+
+O pacote proposto para a reconstrução é `com.facilitus.app`. A entrada da aplicação passa por uma tela de ativação: sem um MAC numérico válido de 12 dígitos e sem resposta `ACTIVE` do backend autorizado, a Home não deve abrir.
 
 ## Princípios iniciais
 

@@ -1,5 +1,10 @@
 {
   "environment": "development",
+  "application": {
+    "name": "Facilitus",
+    "slug": "facilitus",
+    "package_name": "com.facilitus.app"
+  },
   "api": {
     "base_url": "https://replace-with-authorized-api.example/v1",
     "connect_timeout_ms": 10000,
@@ -13,6 +18,13 @@
   "authentication": {
     "mode": "replace-with-approved-contract",
     "issuer": "https://replace-with-authorized-issuer.example"
+  },
+  "activation": {
+    "required": true,
+    "mac_digits": 12,
+    "validation_path": "/activation/validate",
+    "allow_offline_revalidation": false,
+    "mask_mac_in_logs": true
   },
   "features": {
     "ads": false,
