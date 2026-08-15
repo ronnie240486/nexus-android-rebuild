@@ -1,0 +1,24 @@
+{
+  "environment": "development",
+  "api": {
+    "base_url": "https://replace-with-authorized-api.example/v1",
+    "connect_timeout_ms": 10000,
+    "read_timeout_ms": 20000
+  },
+  "content": {
+    "catalog_path": "/catalog",
+    "live_channels_path": "/live/channels",
+    "epg_path": "/epg"
+  },
+  "authentication": {
+    "mode": "replace-with-approved-contract",
+    "issuer": "https://replace-with-authorized-issuer.example"
+  },
+  "features": {
+    "ads": false,
+    "mqtt": false,
+    "remote_apk_update": false,
+    "webview": false,
+    "purchases": false
+  }
+}
