@@ -29,7 +29,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
 /** Clean manual reconstruction of the functional shell observed in NEXUS. */
 public final class MainActivity extends Activity {
@@ -45,6 +47,7 @@ public final class MainActivity extends Activity {
 
     private final Deque<String> history = new ArrayDeque<>();
     private DeviceIdentity.Snapshot identity;
+    private final List<M3uParser.Entry> currentEntries = new ArrayList<>();
     private TextView status;
     private LinearLayout content;
 
@@ -222,6 +225,10 @@ public final class MainActivity extends Activity {
     }
 
     private void showPlayer(String title) {
+        showPlayer(title, "");
+    }
+
+    private void showPlayer(String title, String initialUrl) {
         LinearLayout root = moduleRoot("Player", title);
         VideoView player = new VideoView(this);
         player.setBackgroundColor(Color.BLACK);
@@ -230,6 +237,7 @@ public final class MainActivity extends Activity {
         player.setMediaController(controller);
         root.addView(player, params(0, 0, 0, 12, 280));
         EditText url = input("URL direta do vídeo ou HLS (.m3u8)");
+        url.setText(initialUrl);
         root.addView(url, params(0, 0, 0, 10));
         TextView statusView = text("Informe uma URL autorizada para iniciar a reprodução.", 14, MUTED);
         root.addView(statusView, params(0, 0, 0, 10));
@@ -265,11 +273,27 @@ public final class MainActivity extends Activity {
 
     private void showLive() {
         LinearLayout root = moduleRoot("Canais ao vivo", "Categorias e fontes do painel");
-        String[] channels = {"Notícias", "Esportes", "Filmes", "Infantil", "Variedades"};
-        for (String channel : channels) {
-            Button item = button(channel + "  ·  Abrir canal", WHITE);
-            item.setOnClickListener(v -> showPlayer(channel));
-            root.addView(item, params(0, 0, 0, 9));
+        if (!currentEntries.isEmpty()) {
+            int shown = 0;
+            for (M3uParser.Entry entry : currentEntries) {
+                String group = entry.getGroup().toLowerCase();
+                if (group.contains("live") || group.contains("canal") || group.contains("tv") || group.isEmpty()) {
+                    Button item = button(entry.getTitle() + "  ·  Abrir canal", WHITE);
+                    item.setOnClickListener(v -> showPlayer(entry.getTitle(), entry.getUrl()));
+                    root.addView(item, params(0, 0, 0, 9));
+                    shown++;
+                    if (shown >= 40) {
+                        break;
+                    }
+                }
+            }
+        } else {
+            String[] channels = {"Notícias", "Esportes", "Filmes", "Infantil", "Variedades"};
+            for (String channel : channels) {
+                Button item = button(channel + "  ·  Abrir canal", WHITE);
+                item.setOnClickListener(v -> showPlayer(channel));
+                root.addView(item, params(0, 0, 0, 9));
+            }
         }
         Button reload = button("Atualizar lista ao vivo", GOLD);
         reload.setOnClickListener(v -> toast("Atualização solicitada ao painel"));
@@ -354,7 +378,10 @@ public final class MainActivity extends Activity {
                         body.append(line).append('\n');
                     }
                 }
-                int count = M3uParser.parse(body.toString()).size();
+                List<M3uParser.Entry> parsed = M3uParser.parse(body.toString());
+                currentEntries.clear();
+                currentEntries.addAll(parsed);
+                int count = parsed.size();
                 runOnUiThread(() -> {
                     statusView.setText("Lista sincronizada: " + count + " itens encontrados.");
                     statusView.setTextColor(CYAN);
