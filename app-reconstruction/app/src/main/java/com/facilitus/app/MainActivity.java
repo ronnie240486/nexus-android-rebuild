@@ -1,202 +1,208 @@
 package com.facilitus.app;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.facilitus.security.ActivationGate;
-import com.facilitus.security.MacActivationValidator;
-
-/**
- * Minimal installable Facilitus shell.
- *
- * <p>This first APK keeps activation local so it can be installed and
- * demonstrated without a backend. The production build must replace the
- * local decision with the authorized /activation/validate response and enforce
- * server-side MAC uniqueness.</p>
- */
+/** Stable, offline-first entry point for the clean Facilitus rebuild. */
 public final class MainActivity extends Activity {
-    private static final String PREFS = "facilitus_activation";
-    private static final String MAC_KEY = "authorized_mac";
     private static final int NAVY = Color.rgb(5, 8, 43);
+    private static final int PANEL = Color.rgb(13, 19, 62);
     private static final int CYAN = Color.rgb(18, 217, 228);
     private static final int GOLD = Color.rgb(242, 182, 61);
     private static final int WHITE = Color.rgb(245, 248, 255);
+    private static final int MUTED = Color.rgb(190, 202, 228);
 
-    private SharedPreferences preferences;
+    private DeviceIdentity.Snapshot identity;
+    private TextView identityValue;
+    private TextView identitySource;
     private TextView status;
-    private EditText macInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(NAVY);
         getWindow().setNavigationBarColor(NAVY);
-        preferences = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+        identity = DeviceIdentity.read(this);
+        showWelcome();
+    }
 
-        String storedMac = preferences.getString(MAC_KEY, "");
-        if (MacActivationValidator.hasValidFormat(storedMac)) {
-            showHome(storedMac);
-        } else {
-            showActivation();
+    private void showWelcome() {
+        LinearLayout root = column();
+        root.setPadding(54, 32, 54, 32);
+
+        ImageView logo = new ImageView(this);
+        logo.setImageResource(R.drawable.facilitus_wordmark);
+        logo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        root.addView(logo, params(0, 0, 0, 10, 180));
+
+        TextView welcome = title("Bem-vindo ao Facilitus", 28);
+        root.addView(welcome, params(0, 14, 0, 8));
+
+        TextView intro = centeredText(
+                "Seu aplicativo de entretenimento está pronto. Primeiro copie o identificador deste aparelho para cadastrar o usuário no painel.",
+                16, MUTED);
+        root.addView(intro, params(0, 0, 0, 18));
+
+        LinearLayout identityCard = card();
+        TextView cardLabel = centeredText("IDENTIFICADOR PARA O PAINEL", 12, GOLD);
+        cardLabel.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+        identityCard.addView(cardLabel, params(0, 0, 0, 8));
+
+        identityValue = centeredText(identity.getDisplayValue(), 25, CYAN);
+        identityValue.setTypeface(Typeface.MONOSPACE, Typeface.BOLD);
+        identityValue.setTextIsSelectable(true);
+        identityCard.addView(identityValue, params(0, 0, 0, 6));
+
+        identitySource = centeredText(identity.getSource(), 13, MUTED);
+        identityCard.addView(identitySource, params(0, 0, 0, 12));
+
+        Button copy = button("Copiar identificador", CYAN);
+        copy.setOnClickListener(view -> copyIdentity());
+        identityCard.addView(copy, params(0, 0, 0, 0));
+        root.addView(identityCard, params(0, 0, 0, 14));
+
+        status = centeredText(
+                "Cole o identificador no painel, vincule a lista do usuário e depois continue.",
+                14, MUTED);
+        root.addView(status, params(0, 0, 0, 20));
+
+        Button continueButton = button("Continuar", WHITE);
+        continueButton.setOnClickListener(view -> showHome());
+        root.addView(continueButton, params(0, 0, 0, 18));
+
+        TextView note = centeredText(
+                "A primeira build limpa funciona offline. Catálogo e reprodução serão conectados somente após o contrato do painel.",
+                12, Color.rgb(125, 143, 180));
+        root.addView(note, params(0, 0, 0, 0));
+
+        setContentView(scroll(root));
+    }
+
+    private void showHome() {
+        LinearLayout root = column();
+        root.setPadding(44, 28, 44, 28);
+
+        ImageView logo = new ImageView(this);
+        logo.setImageResource(R.drawable.facilitus_wordmark);
+        logo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        root.addView(logo, params(0, 0, 0, 10, 120));
+
+        TextView heading = title("Início", 25);
+        root.addView(heading, params(0, 12, 0, 4));
+        root.addView(centeredText("Escolha um módulo para continuar.", 15, MUTED),
+                params(0, 0, 0, 18));
+
+        LinearLayout grid = column();
+        grid.addView(moduleButton("Filmes", "Catálogo de filmes", CYAN), params(0, 0, 0, 10));
+        grid.addView(moduleButton("Séries", "Séries e temporadas", GOLD), params(0, 0, 0, 10));
+        grid.addView(moduleButton("Canais ao vivo", "Canais e programação", WHITE), params(0, 0, 0, 10));
+        grid.addView(moduleButton("Minhas listas", "Listas privadas do usuário", CYAN), params(0, 0, 0, 10));
+        grid.addView(moduleButton("Configurações", "DNS, aparência e conta", GOLD), params(0, 0, 0, 16));
+        root.addView(grid, params(0, 0, 0, 0));
+
+        Button back = button("Voltar para o identificador", WHITE);
+        back.setOnClickListener(view -> showWelcome());
+        root.addView(back, params(0, 0, 0, 0));
+        setContentView(scroll(root));
+    }
+
+    private Button moduleButton(String name, String description, int color) {
+        Button button = button(name + "\n" + description, color);
+        button.setGravity(Gravity.CENTER);
+        button.setTextSize(16);
+        button.setOnClickListener(view -> Toast.makeText(
+                this, name + " será conectado ao painel na próxima etapa.", Toast.LENGTH_SHORT).show());
+        return button;
+    }
+
+    private void copyIdentity() {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(ClipData.newPlainText(
+                    "Facilitus device identifier", identity.getPanelValue()));
+            if (status != null) {
+                status.setText("Identificador copiado. Cole-o no painel para vincular a lista.");
+                status.setTextColor(CYAN);
+            }
         }
     }
 
-    private void showActivation() {
-        LinearLayout root = createRoot();
-        addWordmark(root, 190);
-
-        TextView title = text("Ative o Facilitus", 26, WHITE);
-        title.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
-        title.setGravity(Gravity.CENTER);
-        root.addView(title, matchWrap(0, 20, 0, 8));
-
-        TextView explanation = text(
-                "Digite o MAC exclusivo de 12 dígitos atribuído ao seu usuário para continuar.",
-                16,
-                Color.rgb(190, 202, 228));
-        explanation.setGravity(Gravity.CENTER);
-        root.addView(explanation, matchWrap(0, 0, 0, 20));
-
-        macInput = new EditText(this);
-        macInput.setSingleLine(true);
-        macInput.setInputType(InputType.TYPE_CLASS_NUMBER);
-        macInput.setHint("000000000000");
-        macInput.setTextColor(WHITE);
-        macInput.setHintTextColor(Color.rgb(110, 128, 168));
-        macInput.setTextSize(22);
-        macInput.setGravity(Gravity.CENTER);
-        macInput.setPadding(18, 14, 18, 14);
-        root.addView(macInput, matchWrap(0, 0, 0, 14));
-
-        Button activate = button("Ativar acesso", CYAN);
-        activate.setOnClickListener(v -> activateLocalMac());
-        root.addView(activate, matchWrap(0, 0, 0, 10));
-
-        status = text("", 14, Color.rgb(255, 190, 190));
-        status.setGravity(Gravity.CENTER);
-        root.addView(status, matchWrap(0, 0, 0, 0));
-
-        TextView note = text("Primeira build: validação local de demonstração. A unicidade definitiva será validada pelo backend.", 12, Color.rgb(125, 143, 180));
-        note.setGravity(Gravity.CENTER);
-        root.addView(note, matchWrap(0, 32, 0, 0));
-        setContentView(wrap(root));
-    }
-
-    private void activateLocalMac() {
-        String mac = MacActivationValidator.normalize(macInput == null ? "" : macInput.getText().toString());
-        if (!MacActivationValidator.hasValidFormat(mac)) {
-            status.setText("Informe exatamente 12 dígitos numéricos.");
-            return;
-        }
-
-        ActivationGate.Decision decision = ActivationGate.Decision.fromBackend(
-                ActivationGate.Status.ACTIVE, mac);
-        if (!decision.canOpenHome(mac)) {
-            status.setText("Não foi possível validar este MAC.");
-            return;
-        }
-
-        preferences.edit().putString(MAC_KEY, mac).apply();
-        showHome(mac);
-    }
-
-    private void showHome(String mac) {
-        LinearLayout root = createRoot();
-        addWordmark(root, 220);
-
-        TextView title = text("Bem-vindo ao Facilitus", 26, WHITE);
-        title.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
-        title.setGravity(Gravity.CENTER);
-        root.addView(title, matchWrap(0, 24, 0, 10));
-
-        TextView access = text("Acesso liberado", 18, GOLD);
-        access.setGravity(Gravity.CENTER);
-        root.addView(access, matchWrap(0, 0, 0, 8));
-
-        TextView identifier = text("MAC autorizado: " + MacActivationValidator.maskForLog(mac), 15, Color.rgb(190, 202, 228));
-        identifier.setGravity(Gravity.CENTER);
-        root.addView(identifier, matchWrap(0, 0, 0, 28));
-
-        TextView message = text("A base do aplicativo está pronta para receber catálogo, canais e player após a conexão com o backend autorizado.", 16, Color.rgb(190, 202, 228));
-        message.setGravity(Gravity.CENTER);
-        root.addView(message, matchWrap(0, 0, 0, 24));
-
-        Button change = button("Trocar MAC", GOLD);
-        change.setOnClickListener(v -> {
-            preferences.edit().remove(MAC_KEY).apply();
-            showActivation();
-        });
-        root.addView(change, matchWrap(0, 0, 0, 0));
-        setContentView(wrap(root));
-    }
-
-    private LinearLayout createRoot() {
+    private LinearLayout column() {
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
         root.setGravity(Gravity.CENTER_HORIZONTAL);
-        root.setPadding(48, 36, 48, 36);
         root.setBackgroundColor(NAVY);
         return root;
     }
 
-    private ScrollView wrap(LinearLayout content) {
+    private LinearLayout card() {
+        LinearLayout card = column();
+        card.setPadding(24, 20, 24, 20);
+        card.setBackgroundColor(PANEL);
+        return card;
+    }
+
+    private ScrollView scroll(LinearLayout content) {
         ScrollView scroll = new ScrollView(this);
         scroll.setFillViewport(true);
         scroll.setBackgroundColor(NAVY);
         scroll.addView(content, new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
         return scroll;
     }
 
-    private void addWordmark(LinearLayout root, int heightDp) {
-        ImageView logo = new ImageView(this);
-        logo.setImageResource(R.drawable.facilitus_wordmark);
-        logo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        root.addView(logo, matchWrap(0, 0, 0, 12, heightDp));
+    private TextView title(String value, int size) {
+        TextView view = centeredText(value, size, WHITE);
+        view.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
+        return view;
     }
 
-    private TextView text(String value, int size, int color) {
+    private TextView centeredText(String value, int size, int color) {
         TextView view = new TextView(this);
         view.setText(value);
         view.setTextSize(size);
         view.setTextColor(color);
+        view.setGravity(Gravity.CENTER);
         return view;
     }
 
-    private Button button(String label, int color) {
+    private Button button(String value, int color) {
         Button button = new Button(this);
-        button.setText(label);
+        button.setText(value);
         button.setTextColor(NAVY);
         button.setTextSize(16);
         button.setAllCaps(false);
+        button.setGravity(Gravity.CENTER);
         button.setBackgroundColor(color);
         return button;
     }
 
-    private LinearLayout.LayoutParams matchWrap(int left, int top, int right, int bottom) {
-        return new LinearLayout.LayoutParams(
+    private LinearLayout.LayoutParams params(int left, int top, int right, int bottom) {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT) {{
-            setMargins(left, top, right, bottom);
-        }};
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.setMargins(left, top, right, bottom);
+        return params;
     }
 
-    private LinearLayout.LayoutParams matchWrap(int left, int top, int right, int bottom, int height) {
-        LinearLayout.LayoutParams params = matchWrap(left, top, right, bottom);
+    private LinearLayout.LayoutParams params(int left, int top, int right, int bottom, int height) {
+        LinearLayout.LayoutParams params = params(left, top, right, bottom);
         params.height = height;
         return params;
     }

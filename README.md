@@ -4,9 +4,11 @@ Repositório privado para a reconstrução incremental do aplicativo **Facilitus
 
 > **Nova identidade:** o produto reconstruído usa o nome Facilitus, o pacote proposto `com.facilitus.app`, novo ícone/logo e ativação obrigatória por MAC numérico exclusivo de 12 dígitos.
 
-> **Estado atual:** build completa crashfix2 disponível em `dist/facilitus-legacy-0.2.12-crashfix2.apk`; ela preserva os módulos legados, mantém o pacote compatível com o shell original e inicia pela tela Facilitus de MAC. A associação da lista continua sendo feita no painel.
+> **Estado atual:** primeira build limpa disponível em `dist/facilitus-clean-0.2.0.apk`; ela abre com o Facilitus estável, mostra o identificador do aparelho e não depende do shell protegido do APK antigo. Os módulos antigos serão reimplementados progressivamente nessa base.
 
 ## Escopo
+
+A linha principal de desenvolvimento agora é `app-reconstruction/app`, uma aplicação Android limpa com pacote `com.facilitus.app`. Os APKs `facilitus-legacy-*` continuam disponíveis apenas para referência e diagnóstico do pacote original.
 
 O projeto registra a identidade técnica do pacote `cn.dolit.nexus`, seus componentes Android, permissões, bibliotecas nativas, recursos, pontos de integração externa e limitações da decompilação. O APK original é mantido apenas como artefato de referência dentro do repositório privado; ele não deve ser redistribuído publicamente.
 
