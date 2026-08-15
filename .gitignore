@@ -1,0 +1,22 @@
+# Build outputs
+.gradle/
+build/
+*/build/
+.idea/
+*.iml
+local.properties
+
+# Generated analysis scratch data
+*.log
+*.tmp
+
+# Local secrets and environment files
+.env
+.env.*
+keystore.properties
+*.jks
+*.keystore
+
+# Device/debug output
+captures/
+outputs/

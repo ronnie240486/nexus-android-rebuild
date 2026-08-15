@@ -1,0 +1,9 @@
+=== APK SHA256 ===
+5e0738de866acc4c14e8a0e11e8e82a0fad9b4ce30113363c30026ae747d8197  /home/ubuntu/nexus-android-rebuild/forensics/apk/NEXUS.apk
+=== DEX SHA256 ===
+f4104a9d907efe69b1a5ec51a1817dadf44a6bcaf79668e646d1d929d70cf91f  /home/ubuntu/nexus-analysis/strings/classes.dex
+5fe116e85dc7c0e1ac870a9fc9428f43af4b4229d349f3095fe9d9d73802ced2  /home/ubuntu/nexus-analysis/strings/classes2.dex
+a967c3660f030ea3933ad8d0aebdb8fcffee16cc2eadaebbf1e7a89883d708f1  /home/ubuntu/nexus-analysis/strings/classes3.dex
+89086758721facd66093f65fca89f11b3482786d8a4344d86a02a39e9c7f33da  /home/ubuntu/nexus-analysis/strings/classes4.dex
+=== ICON SHA256 ===
+6bd40b5e9d21f10dbabe8f6677f5d6f8c9b8c06f800ba62e51ae3e992dcecbea  /home/ubuntu/nexus-android-rebuild/forensics/metadata/icon-2L.png

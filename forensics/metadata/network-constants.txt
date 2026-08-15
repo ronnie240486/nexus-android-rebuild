@@ -1,0 +1,86 @@
+=== api.52itv.cn/v ===
+p000/InterfaceC0557Ib.java:197: public static final String f1326o = "api.52itv.cn/v";
+Ib.smali:133: .field public static final o:Ljava/lang/String; = "api.52itv.cn/v"
+
+=== so.52itv.cn ===
+p000/InterfaceC0557Ib.java:203: public static final String f1328p = "so.52itv.cn";
+Ib.smali:137: .field public static final p:Ljava/lang/String; = "so.52itv.cn"
+
+=== so.api.52itv.cn ===
+p000/InterfaceC0557Ib.java:209: public static final String f1330q = "so.api.52itv.cn";
+Ib.smali:141: .field public static final q:Ljava/lang/String; = "so.api.52itv.cn"
+
+=== mqtt.ott-iptv.net:1883 ===
+
+=== http://update.flvurl.cn ===
+android/media/ViviTV/MainApp.java:63: public static final String f4325A = "http://update.flvurl.cn/siteparser/rule/custom/dolit.ott/update.json";
+android/media/ViviTV/MainApp.smali:7: .field public static final A:Ljava/lang/String; = "http://update.flvurl.cn/siteparser/rule/custom/dolit.ott/update.json"
+
+=== https://cms.tvapp.nexus/ ===
+
+=== http://10.0.0.20 ===
+p000/C5249qZ.java:14: public static String f18538c = "http://10.0.0.20/test_hls/normal.m3u8";
+p000/C5249qZ.java:17: public static String f18539d = "http://10.0.0.20/v/1080p.mp4";
+p000/C5249qZ.java:20: public static a[] f18540e = {new a(C1275Tp.j.f3362o, 0, "http://10.0.0.20:8085/test_hls/s.m3u8"), new a(C1275Tp.j.f3364q, 0, "http://unknow_host.host/test_hls/s.m3u8"), new a(-2404, 0, "http://10.0.0.20/test_hls/404.m3u8"), new a(0, 0, f18538c), new a(0, C1275Tp.g.f3343a, "http://10.0.0.20/test_hls/s_8001_1.m3u8"), new a(0, C1275Tp.g.f3343a, "http://10.0.0.20/test_hls/s_8001_2.m3u8"), new a(0, C1275Tp.g.f3345c, "http://10.0.0.20/test_hls/s_8004.m3u8"), new a(0, 0, "http://10.0.0.20/test_hls/s_8004_not_checked.m3u8"), new a(-2500, 0, "http://10.0.0.20/test_hls/s_500_need_more_config.m3u8"), new a(C1275Tp.j.f3363p, 0, "https://www.google.com/s.m3u8"), new a(0, 0, f18539d), new a(0, 0, "http://10.0.0.20/test_hls/1.ts"), new a(-2404, 0, "http://10.0.0.20/test_hls/404.ts"), new a(C1275Tp.j.f3365r, 0, "rtmp://10.0.0.20/test/"), new a(C1275Tp.j.f3365r, 0, "udp://10.0.0.20:98756")};
+qZ.smali:19: .field public static c:Ljava/lang/String; = "http://10.0.0.20/test_hls/normal.m3u8"
+qZ.smali:21: .field public static d:Ljava/lang/String; = "http://10.0.0.20/v/1080p.mp4"
+qZ.smali:35: const-string v1, "http://10.0.0.20:8085/test_hls/s.m3u8"
+qZ.smali:72: const-string v4, "http://10.0.0.20/test_hls/404.m3u8"
+qZ.smali:102: const-string v7, "http://10.0.0.20/test_hls/s_8001_1.m3u8"
+qZ.smali:119: const-string v9, "http://10.0.0.20/test_hls/s_8001_2.m3u8"
+qZ.smali:136: const-string v10, "http://10.0.0.20/test_hls/s_8004.m3u8"
+qZ.smali:149: const-string v10, "http://10.0.0.20/test_hls/s_8004_not_checked.m3u8"
+qZ.smali:166: const-string v12, "http://10.0.0.20/test_hls/s_500_need_more_config.m3u8"
+qZ.smali:209: const-string v14, "http://10.0.0.20/test_hls/1.ts"
+qZ.smali:222: const-string v15, "http://10.0.0.20/test_hls/404.ts"
+
+=== SERVER_1 ===
+p000/InterfaceC0557Ib.java:215: public static final String f1332r = "SERVER_1";
+Ib.smali:145: .field public static final r:Ljava/lang/String; = "SERVER_1"
+
+=== SERVER_2 ===
+p000/InterfaceC0557Ib.java:221: public static final String f1334s = "SERVER_2";
+Ib.smali:149: .field public static final s:Ljava/lang/String; = "SERVER_2"
+
+=== SERVER_3 ===
+p000/InterfaceC0557Ib.java:227: public static final String f1336t = "SERVER_3";
+Ib.smali:153: .field public static final t:Ljava/lang/String; = "SERVER_3"
+
+=== SERVER_4 ===
+p000/InterfaceC0557Ib.java:233: public static final String f1338u = "SERVER_4";
+Ib.smali:157: .field public static final u:Ljava/lang/String; = "SERVER_4"
+
+=== ServerAddress ===
+p000/InterfaceC0557Ib.java:59: public static final String f1280I0 = "ServerAddress";
+p000/C4674kQ.java:3: import android.media.ViviTV.activity.ServerAddressSettingActivity;
+p000/C4674kQ.java:12: public final /* synthetic */ ServerAddressSettingActivity f14906a;
+p000/C4674kQ.java:18: public /* synthetic */ C4674kQ(ServerAddressSettingActivity serverAddressSettingActivity, String str) {
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:12: public class ServerAddressSettingActivity extends BaseActivity implements View.OnClickListener {
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:20: /* JADX INFO: renamed from: android.media.ViviTV.activity.ServerAddressSettingActivity$a */
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:27: public final /* synthetic */ ServerAddressSettingActivity f5291b;
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:30: public AsyncTaskC1895a(ServerAddressSettingActivity serverAddressSettingActivity, String str) {
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:63: public static /* synthetic */ void m10174P0(ServerAddressSettingActivity serverAddressSettingActivity, String str, MaterialDialog materialDialog, DialogAction dialogAction) {
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:73: public static /* synthetic */ Button m10176R0(ServerAddressSettingActivity serverAddressSettingActivity) {
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:79: public static /* synthetic */ void m10177S0(ServerAddressSettingActivity serverAddressSettingActivity, String str, int i) {
+android/media/ViviTV/activity/ServerAddressSettingActivity.java:84: public static /* synthetic */ void m10178T0(ServerAddressSettingActivity serverAddressSettingActivity, String str) {
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.java:15: public final class LayoutActivityServerAddressSettingBinding implements ViewBinding {
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.java:34: public LayoutActivityServerAddressSettingBinding(@NonNull RelativeLayout relativeLayout, @NonNull Button button, @NonNull EditText editText, @NonNull TextView textView) {
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.java:40: public static LayoutActivityServerAddressSettingBinding m11234a(@NonNull View view) {
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.java:47: public static LayoutActivityServerAddressSettingBinding m11235c(@NonNull LayoutInflater layoutInflater) {
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.java:54: public static LayoutActivityServerAddressSettingBinding m11236d(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, boolean z) {
+Ib.smali:41: .field public static final I0:Ljava/lang/String; = "ServerAddress"
+kQ.smali:10: .field public final synthetic a:Landroid/media/ViviTV/activity/ServerAddressSettingActivity;
+kQ.smali:16: .method public synthetic constructor <init>(Landroid/media/ViviTV/activity/ServerAddressSettingActivity;Ljava/lang/String;)V
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.smali:1: .class public final Landroid/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding;
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.smali:76: .method public static a(Landroid/view/View;)Landroid/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding;
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.smali:202: .method public static c(Landroid/view/LayoutInflater;)Landroid/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding;
+android/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding.smali:226: .method public static d(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Z)Landroid/media/ViviTV/databinding/LayoutActivityServerAddressSettingBinding;
+
+=== OTTClient_20170303_key1 ===
+android/media/ViviTV/MainApp.java:75: public static final String f4331A6 = "OTTClient_20170303_key1";
+android/media/ViviTV/MainApp.smali:19: .field public static final A6:Ljava/lang/String; = "OTTClient_20170303_key1"
+
+=== DolitOTTClientKEY_1 ===
+android/media/ViviTV/player/widget/C2313f.java:21: public static final String f9570f0 = "DolitOTTClientKEY_1";
+android/media/ViviTV/player/widget/f.smali:9: .field public static final f0:Ljava/lang/String; = "DolitOTTClientKEY_1"
+

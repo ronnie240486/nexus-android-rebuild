@@ -1,0 +1,81 @@
+.class public Landroid/media/ViviTV/Pre_launcher$l;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements LUc$e;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Landroid/media/ViviTV/Pre_launcher;->g2(I)V
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = null
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:Landroid/media/ViviTV/Pre_launcher;
+
+
+# direct methods
+.method public constructor <init>(Landroid/media/ViviTV/Pre_launcher;)V
+    .locals 0
+
+    return-void
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+.end method
+
+
+# virtual methods
+.method public a(LUc;Landroid/view/View;)V
+    .locals 0
+
+    return-void
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+
+    nop
+.end method

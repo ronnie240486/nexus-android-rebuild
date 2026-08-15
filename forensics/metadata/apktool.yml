@@ -1,0 +1,68 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: NEXUS.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- META-INF/com.android.tools.metadata/drm/com.google.play/metadata.bin
+- META-INF/com.android.tools.metadata/drm/com.oppo.market/metadata.bin
+- META-INF/com.android.tools.metadata/xiaomi/mi.com/metadata.bin
+- png
+- jpeg
+- mp3
+- res/raw/about_us.txt
+- wav
+- res/font/text_style.ttf
+- jpg
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '19'
+  targetSdkVersion: '34'
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  androidsupportmultidexversion.txt: '8'
+  firebase-analytics.properties: '8'
+  firebase-annotations.properties: '8'
+  firebase-common.properties: '8'
+  firebase-components.properties: '8'
+  firebase-crashlytics.properties: '8'
+  firebase-encoders-json.properties: '8'
+  firebase-encoders-proto.properties: '8'
+  firebase-encoders.properties: '8'
+  firebase-installations-interop.properties: '8'
+  firebase-installations.properties: '8'
+  firebase-measurement-connector.properties: '8'
+  play-services-ads-identifier.properties: '8'
+  play-services-basement.properties: '8'
+  play-services-measurement-api.properties: '8'
+  play-services-measurement-base.properties: '8'
+  play-services-measurement-impl.properties: '8'
+  play-services-measurement-sdk-api.properties: '8'
+  play-services-measurement-sdk.properties: '8'
+  play-services-measurement.properties: '8'
+  play-services-stats.properties: '8'
+  play-services-tasks.properties: '8'
+  transport-api.properties: '8'
+  transport-backend-cct.properties: '8'
+  transport-runtime.properties: '8'
+  license/LICENSE.dom-documentation.txt: '8'
+  license/LICENSE.dom-software.txt: '8'
+  license/LICENSE.sax.txt: '8'
+  license/LICENSE.txt: '8'
+  license/README.dom.txt: '8'
+  license/README.sax.txt: '8'
+  license/README.txt: '8'
+  okhttp3/internal/publicsuffix/publicsuffixes.gz: '8'
+  org/bouncycastle/x509/CertPathReviewerMessages.properties: '8'
+  org/bouncycastle/x509/CertPathReviewerMessages_de.properties: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.7.0-dirty
+versionInfo:
+  versionCode: '212'
+  versionName: 0.2.12
