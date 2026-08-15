@@ -1,0 +1,9 @@
+FACILITUS + NEXUS ORIGINAL
+
+1. Instale primeiro: nexus-original-0.2.12.apk
+2. Instale depois: facilitus-launcher-0.2.0.apk
+3. Abra o Facilitus Launcher.
+4. Copie o identificador exibido e cadastre-o no painel.
+5. Toque em "Abrir aplicativo original".
+
+O NEXUS original foi preservado byte a byte. O launcher Facilitus é uma camada separada; ele não substitui nem recompila o runtime original.

@@ -4,13 +4,13 @@ Repositório privado para a reconstrução incremental do aplicativo **Facilitus
 
 > **Nova identidade:** o produto reconstruído usa o nome Facilitus, o pacote proposto `com.facilitus.app`, novo ícone/logo e ativação obrigatória por MAC numérico exclusivo de 12 dígitos.
 
-> **Estado atual:** primeira build limpa disponível em `dist/facilitus-clean-0.2.0.apk`; ela abre com o Facilitus estável, mostra o identificador do aparelho e não depende do shell protegido do APK antigo. Os módulos antigos serão reimplementados progressivamente nessa base.
+> **Estado atual:** entrega de preservação disponível em `dist/nexus-original-0.2.12.apk` + `dist/facilitus-launcher-0.2.0.apk`. O NEXUS original permanece byte a byte intacto; o launcher Facilitus exibe logo, boas-vindas, identificador do aparelho e abre o aplicativo original.
 
 ## Escopo
 
-A linha principal de desenvolvimento agora é `app-reconstruction/app`, uma aplicação Android limpa com pacote `com.facilitus.app`. Os APKs `facilitus-legacy-*` continuam disponíveis apenas para referência e diagnóstico do pacote original.
+A entrega atual usa `app-reconstruction/app` como launcher com pacote `com.facilitus.app`. O runtime completo continua no pacote original `cn.dolit.nexus`, preservado sem recompilação. A fusão em um único APK só será feita quando os módulos e o shell forem reimplementados ou quando houver fonte/assinatura autorizada.
 
-O projeto registra a identidade técnica do pacote `cn.dolit.nexus`, seus componentes Android, permissões, bibliotecas nativas, recursos, pontos de integração externa e limitações da decompilação. O APK original é mantido apenas como artefato de referência dentro do repositório privado; ele não deve ser redistribuído publicamente.
+O projeto registra a identidade técnica do pacote `cn.dolit.nexus`, seus componentes Android, permissões, bibliotecas nativas, recursos, pontos de integração externa e limitações da decompilação. O APK original é mantido no repositório privado como a base operacional desta etapa; a distribuição deve ser feita somente com autorização do proprietário.
 
 A abordagem recomendada é **reimplementar por comportamento**, em vez de tentar editar indefinidamente o bytecode ofuscado. A primeira etapa de melhoria deve estabilizar configuração de servidor, rede, navegação e reprodução de mídia; em seguida, devemos remover permissões excessivas, substituir endpoints legados e modernizar a arquitetura.
 
@@ -30,6 +30,13 @@ A abordagem recomendada é **reimplementar por comportamento**, em vez de tentar
 O pacote contém quatro arquivos DEX, código nativo para `arm64-v8a` e `armeabi-v7a`, muitas dependências incorporadas e sinais de ofuscação. Em classes relevantes, o decompilador produziu métodos vazios, retornos artificiais ou `UnsupportedOperationException`; por isso, os arquivos decompilados não devem ser tratados como fonte original nem compilados diretamente.
 
 A assinatura encontrada usa um certificado autoassinado com sujeito e emissor `O=dolit, OU=dolit`. Qualquer APK reconstruído precisará de uma nova chave de assinatura e terá um identificador de assinatura diferente do pacote distribuído originalmente.
+
+## Instalação da entrega atual
+
+1. Instale `dist/nexus-original-0.2.12.apk`.
+2. Instale `dist/facilitus-launcher-0.2.0.apk`.
+3. Abra o Facilitus Launcher, copie o identificador para o painel e toque em **Abrir aplicativo original**.
+4. Use `dist/facilitus-original-bundle-0.2.0.zip` para transportar os dois APKs e as instruções.
 
 ## Próximo passo recomendado
 
