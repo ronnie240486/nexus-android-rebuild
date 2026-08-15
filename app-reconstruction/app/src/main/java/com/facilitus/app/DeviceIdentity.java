@@ -22,7 +22,7 @@ public final class DeviceIdentity {
     public static Snapshot read(Context context) {
         String mac = readHardwareMac();
         if (mac != null) {
-            return new Snapshot(mac, formatMac(mac), "MAC da interface de rede");
+            return new Snapshot(mac, mac, "MAC da interface de rede");
         }
 
         SharedPreferences preferences = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
