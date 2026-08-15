@@ -1,7 +1,9 @@
 from pathlib import Path
+import sys
 from PIL import Image
 
-root = Path('/tmp/nexus-apktool-rebuild/res')
+project_root = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('/tmp/nexus-apktool-rebuild')
+root = project_root / 'res'
 converted = []
 for path in root.rglob('*.png'):
     try:
