@@ -33,6 +33,25 @@ public final class PanelConfigStore {
         return preferences(context).getString("server_" + index, "");
     }
 
+    public static void savePlaylist(Context context, int index, PanelPlaylist playlist) {
+        if (index < 1 || index > 5 || playlist == null) {
+            return;
+        }
+        preferences(context).edit()
+                .putString("playlist_url_" + index, playlist.getUrl())
+                .putString("playlist_name_" + index, playlist.getName())
+                .apply();
+    }
+
+    public static PanelPlaylist getPlaylist(Context context, int index) {
+        if (index < 1 || index > 5) {
+            return new PanelPlaylist("", "Lista");
+        }
+        return new PanelPlaylist(
+                preferences(context).getString("playlist_url_" + index, ""),
+                preferences(context).getString("playlist_name_" + index, "Lista " + index));
+    }
+
     private static SharedPreferences preferences(Context context) {
         return context.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
     }
