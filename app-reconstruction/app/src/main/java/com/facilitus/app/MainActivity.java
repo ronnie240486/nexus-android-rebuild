@@ -14,6 +14,7 @@ import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -54,6 +55,14 @@ public final class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         getWindow().setStatusBarColor(NAVY);
         getWindow().setNavigationBarColor(NAVY);
         identity = DeviceIdentity.read(this);
@@ -724,10 +733,24 @@ public final class MainActivity extends Activity {
         Button button = new Button(this);
         button.setText(value);
         button.setTextColor(NAVY);
-        button.setTextSize(16);
+        button.setTextSize(18);
         button.setAllCaps(false);
         button.setGravity(Gravity.CENTER);
+        button.setMinHeight(56);
+        button.setFocusable(true);
+        button.setFocusableInTouchMode(true);
         button.setBackgroundColor(color);
+        button.setOnFocusChangeListener((view, focused) -> {
+            if (focused) {
+                view.setBackgroundColor(CYAN);
+                view.setScaleX(1.015f);
+                view.setScaleY(1.015f);
+            } else {
+                view.setBackgroundColor(color);
+                view.setScaleX(1.0f);
+                view.setScaleY(1.0f);
+            }
+        });
         return button;
     }
 
