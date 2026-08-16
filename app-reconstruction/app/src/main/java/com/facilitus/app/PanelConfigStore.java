@@ -19,6 +19,14 @@ public final class PanelConfigStore {
         return preferences(context).getString(API, "");
     }
 
+    public static void saveEpg(Context context, String value) {
+        preferences(context).edit().putString("epg_url", safe(value)).apply();
+    }
+
+    public static String getEpg(Context context) {
+        return preferences(context).getString("epg_url", "");
+    }
+
     public static void saveServer(Context context, int index, String value) {
         if (index < 1 || index > 5) {
             return;

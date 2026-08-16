@@ -49,6 +49,7 @@ public final class MainActivity extends Activity {
     private final Deque<String> history = new ArrayDeque<>();
     private DeviceIdentity.Snapshot identity;
     private final List<M3uParser.Entry> currentEntries = new ArrayList<>();
+    private final List<EpgParser.Program> currentEpg = new ArrayList<>();
     private TextView status;
     private LinearLayout content;
 
@@ -354,11 +355,23 @@ public final class MainActivity extends Activity {
 
     private void showEpg() {
         LinearLayout root = moduleRoot("EPG / programação", "Grade de programação por canal");
-        String[] entries = {"18:00  Jornal da noite", "19:30  Filme em destaque", "21:15  Série principal", "22:00  Programa especial"};
-        for (String entry : entries) {
-            root.addView(text(entry, 17, WHITE), params(0, 10, 0, 10));
+        if (currentEpg.isEmpty()) {
+            String[] entries = {"18:00  Jornal da noite", "19:30  Filme em destaque", "21:15  Série principal", "22:00  Programa especial"};
+            for (String entry : entries) root.addView(text(entry, 17, WHITE), params(0, 10, 0, 10));
+            root.addView(text("Sincronize uma URL XMLTV autorizada no menu Servidor para exibir a grade real.", 14, MUTED), params(0, 12, 0, 12));
+        } else {
+            for (EpgParser.Program program : currentEpg) {
+                LinearLayout item = card();
+                item.addView(text(program.displayLine(), 17, WHITE), params(0, 0, 0, 5));
+                if (!program.getDescription().isEmpty()) item.addView(text(program.getDescription(), 14, MUTED), params(0, 0, 0, 0));
+                root.addView(item, params(0, 0, 0, 8));
+            }
         }
-        root.addView(text("A grade real será carregada do EPG autorizado do painel.", 14, MUTED), params(0, 12, 0, 0));
+        Button sync = button("Sincronizar EPG", GOLD);
+        TextView syncStatus = text("", 14, MUTED);
+        sync.setOnClickListener(v -> syncEpg(syncStatus));
+        root.addView(sync, params(0, 10, 0, 8));
+        root.addView(syncStatus, params(0, 0, 0, 0));
         setPage(root);
     }
 
@@ -487,6 +500,49 @@ public final class MainActivity extends Activity {
         }).start();
     }
 
+    private void syncEpg(TextView statusView) {
+        String endpoint = PanelConfigStore.getEpg(this);
+        if (endpoint.isEmpty()) {
+            statusView.setText("Configure uma URL XMLTV no menu Servidor.");
+            statusView.setTextColor(ERROR);
+            return;
+        }
+        statusView.setText("Sincronizando programação...");
+        statusView.setTextColor(GOLD);
+        final String epgEndpoint = endpoint;
+        new Thread(() -> {
+            HttpURLConnection connection = null;
+            try {
+                connection = (HttpURLConnection) new URL(epgEndpoint).openConnection();
+                connection.setConnectTimeout(10000);
+                connection.setReadTimeout(20000);
+                connection.setRequestProperty("User-Agent", "Facilitus/0.9.0");
+                int code = connection.getResponseCode();
+                if (code < 200 || code >= 300) throw new IllegalStateException("HTTP " + code);
+                StringBuilder body = new StringBuilder();
+                try (BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) body.append(line).append('\n');
+                }
+                List<EpgParser.Program> parsed = EpgParser.parse(body.toString());
+                currentEpg.clear();
+                currentEpg.addAll(parsed);
+                runOnUiThread(() -> {
+                    statusView.setText("EPG sincronizado: " + parsed.size() + " programas.");
+                    statusView.setTextColor(CYAN);
+                    showEpg();
+                });
+            } catch (Exception error) {
+                runOnUiThread(() -> {
+                    statusView.setText("Falha no EPG: " + error.getClass().getSimpleName());
+                    statusView.setTextColor(ERROR);
+                });
+            } finally {
+                if (connection != null) connection.disconnect();
+            }
+        }).start();
+    }
+
     private void showAccount() {
         LinearLayout root = moduleRoot("Login e conta", "Sessão, cadastro e recuperação de acesso");
         addLabel(root, "USUÁRIO");
@@ -514,6 +570,10 @@ public final class MainActivity extends Activity {
         api.setText(PanelConfigStore.getApi(this));
         root.addView(api, params(0, 0, 0, 12));
         addLabel(root, "ENDPOINTS DISPONÍVEIS");
+        addLabel(root, "EPG XMLTV");
+        EditText epg = input("URL XMLTV autorizada");
+        epg.setText(PanelConfigStore.getEpg(this));
+        root.addView(epg, params(0, 0, 0, 12));
         EditText[] endpoints = new EditText[5];
         for (int index = 1; index <= 5; index++) {
             endpoints[index - 1] = input("Servidor " + index);
@@ -523,6 +583,7 @@ public final class MainActivity extends Activity {
         Button save = button("Salvar servidores", GOLD);
         save.setOnClickListener(v -> {
             PanelConfigStore.saveApi(this, api.getText().toString());
+            PanelConfigStore.saveEpg(this, epg.getText().toString());
             for (int index = 1; index <= 5; index++) {
                 PanelConfigStore.saveServer(this, index, endpoints[index - 1].getText().toString());
             }
