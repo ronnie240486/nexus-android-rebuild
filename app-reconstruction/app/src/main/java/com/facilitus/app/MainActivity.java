@@ -100,19 +100,26 @@ public final class MainActivity extends Activity {
         root.addView(card, params(0, 0, 0, 16));
 
         addLabel(root, "STATUS DA ATIVAÇÃO");
-        EditText activation = input("Código do painel ou observação de ativação");
-        activation.setInputType(InputType.TYPE_CLASS_TEXT);
-        root.addView(activation, params(0, 0, 0, 10));
-        status = text("Copie o identificador, cadastre-o no painel e confirme abaixo.", 14, MUTED);
+        status = text("Copie o identificador, cadastre-o no painel e depois verifique a liberação.", 14, MUTED);
         status.setGravity(Gravity.CENTER);
         root.addView(status, params(0, 0, 0, 12));
 
-        Button confirm = button("Já cadastrei no painel", WHITE);
-        confirm.setOnClickListener(v -> {
-            getSharedPreferences(PREFS, MODE_PRIVATE).edit().putBoolean(ACTIVE, true).apply();
-            showHome();
+        Button validate = button("Verificar liberação no painel", WHITE);
+        validate.setOnClickListener(v -> {
+            validate.setEnabled(false);
+            status.setText("Consultando o painel...");
+            status.setTextColor(GOLD);
+            ActivationClient.validate(PanelConfigStore.getApi(this), identity.getPanelValue(), (active, message) -> {
+                validate.setEnabled(true);
+                status.setText(message);
+                status.setTextColor(active ? CYAN : ERROR);
+                if (active) {
+                    getSharedPreferences(PREFS, MODE_PRIVATE).edit().putBoolean(ACTIVE, true).apply();
+                    showHome();
+                }
+            });
         });
-        root.addView(confirm, params(0, 0, 0, 10));
+        root.addView(validate, params(0, 0, 0, 10));
 
         Button refresh = button("Atualizar identificador", GOLD);
         refresh.setOnClickListener(v -> {
