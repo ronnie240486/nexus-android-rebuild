@@ -271,7 +271,10 @@ public final class MainActivity extends Activity {
         play.setOnClickListener(v -> showPlayer(title, url));
         root.addView(play, params(0, 0, 0, 10));
         Button favorite = button("Adicionar aos favoritos", GOLD);
-        favorite.setOnClickListener(v -> toast("Adicionado aos favoritos"));
+        favorite.setOnClickListener(v -> {
+            FavoritesStore.add(this, title, url);
+            toast("Adicionado aos favoritos");
+        });
         root.addView(favorite, params(0, 0, 0, 0));
         setPage(root);
     }
@@ -409,10 +412,19 @@ public final class MainActivity extends Activity {
 
     private void showFavorites() {
         LinearLayout root = moduleRoot("Favoritos", "Conteúdos salvos pelo usuário");
-        root.addView(text("Nenhum favorito sincronizado ainda.", 16, MUTED), params(0, 0, 0, 18));
-        Button add = button("Voltar ao catálogo", WHITE);
-        add.setOnClickListener(v -> showVod());
-        root.addView(add, params(0, 0, 0, 0));
+        List<FavoritesStore.Item> favorites = FavoritesStore.get(this);
+        if (favorites.isEmpty()) {
+            root.addView(text("Nenhum favorito salvo ainda.", 16, MUTED), params(0, 0, 0, 18));
+        } else {
+            for (FavoritesStore.Item favorite : favorites) {
+                Button item = button(favorite.title + "  ·  Reproduzir", WHITE);
+                item.setOnClickListener(v -> showPlayer(favorite.title, favorite.url));
+                root.addView(item, params(0, 0, 0, 9));
+            }
+            Button clear = button("Limpar favoritos", GOLD);
+            clear.setOnClickListener(v -> { FavoritesStore.clear(this); showFavorites(); });
+            root.addView(clear, params(0, 10, 0, 0));
+        }
         setPage(root);
     }
 
@@ -670,9 +682,13 @@ public final class MainActivity extends Activity {
         LinearLayout root = moduleRoot("Configurações", "Preferências do Facilitus");
         addLabel(root, "SERVIDOR PRINCIPAL");
         EditText server = input("https://seu-servidor-autorizado");
+        server.setText(PanelConfigStore.getServer(this, 1));
         root.addView(server, params(0, 0, 0, 10));
         Button save = button("Salvar servidor", GOLD);
-        save.setOnClickListener(v -> toast("Servidor salvo localmente"));
+        save.setOnClickListener(v -> {
+            PanelConfigStore.saveServer(this, 1, server.getText().toString());
+            toast("Servidor salvo localmente");
+        });
         root.addView(save, params(0, 0, 0, 14));
         addLabel(root, "PLAYER");
         root.addView(text("Decodificação automática\nPlayer externo\nFonte preferida\nReprodução automática", 16, WHITE), params(0, 0, 0, 18));
