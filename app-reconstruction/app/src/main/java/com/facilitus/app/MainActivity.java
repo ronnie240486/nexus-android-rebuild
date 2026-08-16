@@ -189,11 +189,42 @@ public final class MainActivity extends Activity {
     }
 
     private void showVod() {
-        showCatalog("Filmes", "Catálogo de filmes", new String[]{"Destaques", "Ação", "Comédia", "Drama", "Documentários"});
+        if (!currentEntries.isEmpty()) {
+            showStreamingCatalog("Filmes", "Itens VOD recebidos da lista privada", false);
+        } else {
+            showCatalog("Filmes", "Catálogo de filmes", new String[]{"Destaques", "Ação", "Comédia", "Drama", "Documentários"});
+        }
     }
 
     private void showSeries() {
-        showCatalog("Séries e episódios", "Séries vinculadas às listas privadas", new String[]{"Em destaque", "Novas temporadas", "Mais assistidas", "Infantil"});
+        if (!currentEntries.isEmpty()) {
+            showStreamingCatalog("Séries e episódios", "Itens de séries recebidos da lista privada", true);
+        } else {
+            showCatalog("Séries e episódios", "Séries vinculadas às listas privadas", new String[]{"Em destaque", "Novas temporadas", "Mais assistidas", "Infantil"});
+        }
+    }
+
+    private void showStreamingCatalog(String title, String subtitle, boolean series) {
+        LinearLayout root = moduleRoot(title, subtitle);
+        int shown = 0;
+        for (M3uParser.Entry entry : currentEntries) {
+            String group = entry.getGroup().toLowerCase();
+            boolean looksSeries = group.contains("series") || group.contains("série") || group.contains("temporada") || entry.getTitle().toLowerCase().contains("s0");
+            if (series != looksSeries) {
+                continue;
+            }
+            Button item = button(entry.getTitle() + "  ·  Abrir", WHITE);
+            item.setOnClickListener(v -> showDetails(entry.getTitle(), entry.getUrl()));
+            root.addView(item, params(0, 0, 0, 9));
+            shown++;
+            if (shown >= 80) {
+                break;
+            }
+        }
+        if (shown == 0) {
+            root.addView(text("Nenhum item desta categoria foi encontrado na lista sincronizada.", 16, MUTED), params(0, 0, 0, 18));
+        }
+        setPage(root);
     }
 
     private void showCatalog(String title, String subtitle, String[] categories) {
@@ -203,7 +234,7 @@ public final class MainActivity extends Activity {
             TextView name = text(category, 19, WHITE);
             name.setTypeface(Typeface.DEFAULT, Typeface.BOLD);
             item.addView(name, params(0, 0, 0, 5));
-            item.addView(text("Conteúdo carregado pelo painel", 14, MUTED), params(0, 0, 0, 10));
+            item.addView(text("Sincronize uma lista autorizada para exibir o catálogo real.", 14, MUTED), params(0, 0, 0, 10));
             Button open = button("Abrir categoria", CYAN);
             open.setOnClickListener(v -> showDetails(category));
             item.addView(open, params(0, 0, 0, 0));
@@ -213,10 +244,14 @@ public final class MainActivity extends Activity {
     }
 
     private void showDetails(String title) {
+        showDetails(title, "");
+    }
+
+    private void showDetails(String title, String url) {
         LinearLayout root = moduleRoot(title, "Detalhes do conteúdo");
-        root.addView(text("Sinopse, capa, temporadas, episódios e ações de reprodução aparecerão aqui quando o painel fornecer os dados.", 16, MUTED), params(0, 0, 0, 18));
+        root.addView(text("Sinopse, capa, temporadas, episódios e ações de reprodução serão carregadas da fonte autorizada.", 16, MUTED), params(0, 0, 0, 18));
         Button play = button("Reproduzir", CYAN);
-        play.setOnClickListener(v -> showPlayer(title));
+        play.setOnClickListener(v -> showPlayer(title, url));
         root.addView(play, params(0, 0, 0, 10));
         Button favorite = button("Adicionar aos favoritos", GOLD);
         favorite.setOnClickListener(v -> toast("Adicionado aos favoritos"));
@@ -316,12 +351,30 @@ public final class MainActivity extends Activity {
         EditText query = input("Digite o nome do conteúdo");
         root.addView(query, params(0, 0, 0, 10));
         Button search = button("Pesquisar", CYAN);
-        TextView result = text("", 15, MUTED);
-        search.setOnClickListener(v -> result.setText(query.getText().toString().trim().isEmpty()
-                ? "Digite um termo para pesquisar."
-                : "Resultados para: " + query.getText().toString().trim()));
+        LinearLayout results = column();
+        search.setOnClickListener(v -> {
+            results.removeAllViews();
+            String term = query.getText().toString().trim().toLowerCase();
+            if (term.isEmpty()) {
+                results.addView(text("Digite um termo para pesquisar.", 15, ERROR), params(0, 0, 0, 0));
+                return;
+            }
+            int matches = 0;
+            for (M3uParser.Entry entry : currentEntries) {
+                if (entry.getTitle().toLowerCase().contains(term)) {
+                    Button item = button(entry.getTitle() + "  ·  Abrir", WHITE);
+                    item.setOnClickListener(x -> showDetails(entry.getTitle(), entry.getUrl()));
+                    results.addView(item, params(0, 0, 0, 8));
+                    matches++;
+                    if (matches >= 60) break;
+                }
+            }
+            if (matches == 0) {
+                results.addView(text("Nenhum resultado encontrado na lista sincronizada.", 15, MUTED), params(0, 0, 0, 0));
+            }
+        });
         root.addView(search, params(0, 0, 0, 16));
-        root.addView(result, params(0, 0, 0, 0));
+        root.addView(results, params(0, 0, 0, 0));
         setPage(root);
     }
 
